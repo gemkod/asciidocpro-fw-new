@@ -1,0 +1,84 @@
+////
+Date de création : 18/12/2024 à 11:35
+Email : asciidocpro@gmail.
+Licence : Framework AsciidocPro © 2024 by Emmanuel Ravrat is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1
+###############################################################################
+Fichier des attributs de rendu divers (non classables dans les autres fichiers
+
+Ces attributs ont un impact sur ce qui est affiché dans le document
+
+ATTENTION : Ce fichier ne doit contenir aucune ligne vide sauf dans un bloc de
+commentaire ou avant un message d'erreur.
+###############################################################################
+////
+////
+................................................................................
+Chemin relatif menant au dossier dans lequel générer les diagrammes
+
+Ce chemin doit être utilisé pour définir la valeur de l'attribut `target`.
+Exemple :
+[plantuml,target={_render_diagrams_folder}nom_du_fichier_a_generer,format=svg]
+....
+' ici le code du diagramme
+....
+................................................................................
+////
+:_render_diagrams_folder: images/.diagram/
+////
+................................................................................
+Valeur à partir de laquelle commencer à numéro les questions.
+
+Valeur : un nombre entier
+
+Remarque : la première question aura la valeur définie + 1
+................................................................................
+////
+:_render_question_start: 0
+////
+Fichier de thème à utiliser
+
+Valeur : Le nom du fichier de thème à utiliser (Le fichier doit être placé
+dans le dossier `.config/themes/` au niveau global et/ou au niveau local
+(livre, chapitre, exercice)
+
+Exemple : my-custom-theme.yml (nom complet avec l'extension)
+////
+:_render_pdf_theme_file:
+////
+................................................................................
+Fichier image du logo à afficher sur la page de couverture
+
+Valeur : le nom du fichier à utiliser | rien (s'il n'y a pas d'image à utiliser)
+
+Remarque : ce fichier sera recherché dans le dossier `.config/images/` soit au
+niveau global, soit au niveau local si défini.
+Le doctype doit être défini à `book` pour générer la page de couverture (comportement par défaut)
+................................................................................
+////
+:_render_cover_logo_filename:
+////
+................................................................................
+Fichier image de l'image à afficher sur la page de couverture
+
+Valeur : le nom du fichier à utiliser | rien (s'il n'y a pas d'image à utiliser)
+
+Remarque : ce fichier sera recherché dans le dossier `.config/images/` soit au
+niveau global, soit au niveau local si défini.
+Le doctype doit être défini à `book` pour générer la page de couverture (voir
+dans les attributs natifs AsciiDoc l'attribut `doctype`.
+................................................................................
+////
+:_render_cover_image_filename:
+////
+................................................................................
+Active ou désactive le contexte de publication.
+
+Valeur : 0 | 1
+
+Si le contexte de publication est activé (valeur 1), les liens vers les fichiers
+ressources utilisés dans les composants sont adaptés pour être compatibles avec
+le dossier de publication distant.
+................................................................................
+////
+:_render_publication_context: 0

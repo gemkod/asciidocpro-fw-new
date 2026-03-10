@@ -1,0 +1,52 @@
+////
+Date de création : 22/12/2024
+Email : asciidocpro@gmail.
+Licence : Framework AsciidocPro © 2024 by Emmanuel Ravrat is licensed under
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1
+###############################################################################
+Alias pour exposer certains attributs systèmes aux utilisateurs
+
+ATTENTION : Ce fichier ne doit contenir aucune ligne vide sauf dans un bloc de
+commentaire ou avant un message d'erreur.
+###############################################################################
+////
+////
+===============================================================================
+Alias facilitant l'utilisabilité des attributs définis par le framework
+===============================================================================
+////
+// Numéro de version du framework
+:adp_version: {_fw_version}
+:adp_support_uid: {_persist_uid_support}
+// Chemin vers le fichier gérant l'ajout des chapitres et des exercices
+//todo : voir si je dois laisser cet attribut
+:_add_to_book: {_system_build_book_file}
+// Chemin vers le template concernant le lable d'une question
+:adp_show_correction: {_render_show_correction}
+:adp_label_question: {_fw_question_label_template_file}
+:adp_label_answer: {_fw_answer_label_template_file}
+:adp_definition: {_fw_definitions_folder}
+:adp_label_teacher_note: {_fw_teacher_note_label_template_file}
+:adp_show_teacher_note: {_render_show_teacher_note}
+// :adp_answer_available_label: {_fw_answer_available_label_template_file}
+:adp_label_answer_available: {_fw_answer_available_label_template_file}
+// :adp_start_definition: {_system_hook_pre_definition_file}
+:adp_definition: {_fw_definitions_folder}
+:adp_changelog: {_system_changelog_support_file}
+////
+===============================================================================
+Alias permettant la compatibilité avec les attributs de la version < 5.0.0
+
+Ces attributs sont dépréciés et seront supprimés dans une prochaine version
+===============================================================================
+////
+:_show_correction: {adp_show_correction}
+:_show_note_prof: {adp_show_teacher_note}
+// attributs à valider (suppression, modification, etc) :
+:_show_changelog: {_render_show_changelog}
+:_correction_label: {_render_correction_label}
+// :_label_question: {_render_template_label_question}
+// :_label_answer: {_render_template_label_answer}
+// :_label_answer_available: {_render_template_answer_available}
+:_changelog: {_system_template_changelog_file}

@@ -1,0 +1,21 @@
+////
+Date de création : 29/12/2024
+Email : asciidocpro@gmail.
+Licence : Framework AsciidocPro © 2024 by Emmanuel Ravrat is licensed under
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1
+###############################################################################
+Template à afficher sous une réponse lorsque celle-ci est masquée.
+
+Cela permet d'indiquer au lecteur qu'il y a une réponse pour la question.
+###############################################################################
+////
+ifeval::[{adp_show_correction} == 0]
+ifdef::_render_question_start[]
+[.small]#_La réponse à la question *{_fw_current_question_counter}* est disponible dans la correction._#
+endif::_render_question_start[]
+//
+ifndef::_render_question_start[]
+[.small]#_La réponse à la question est disponible dans la correction._#
+endif::_render_question_start[]
+endif::[]
