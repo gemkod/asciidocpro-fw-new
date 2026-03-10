@@ -1,1 +1,1 @@
-:adp_framework_location:
+:adp_framework_folder: C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/
