@@ -1,13 +1,46 @@
-//inclus les fichiers d'attributs globaux de rendu
+//Chargement des données dynamiques (toujours en premier)
+include::framework_location.adoc[]
+include::project_loaded.adoc[]
+// Chargement des chemins vers les dossiers et fichiers du framework (toujours avant de faire les inclusions)
+include::paths/init.adoc[]
+include::paths/attributes.adoc[]
+include::paths/templates.adoc[]
+include::paths/themes.adoc[]
+include::paths/images.adoc[]
+//chargement des fichiers d'attributs
+include::{adp_attributes_system_show_file}[]
+include::{adp_attributes_system_caption_file}[]
+include::{adp_attributes_system_author_file}[]
+include::{adp_attributes_system_toc_file}[]
+include::{adp_attributes_system_version_file}[]
+include::{adp_attributes_system_miscellaneous_file}[]
+include::{adp_attributes_system_theme_pdf_file}[]
+include::{adp_attributes_system_theme_html_file}[]
+include::{adp_attributes_system_project_file}[]
+//chargement des fichiers résolver d'attributs (toujours après avoir chargé tous les attributs)
+include::{adp_attributes_system_resolver_version_info_file}[]
+include::{adp_attributes_system_resolver_author_info_file}[]
+// //chargement des alias disponibles dans un document utilisateur
+include::{adp_attributes_system_alias_render_file}[]
+include::{adp_attributes_system_alias_template_file}[]
+//attributs de document
+//ligne contrainte pour l'auteur et l'email
+// :author: {adp_author_name_to_use}
+// :email: {adp_author_email_to_use}
+// ifeval::[{adp_render_show_author_info} == 1]
+// {adp_author_name}
+// ifeval::["{adp_author_email}" != ""]
+// <{adp_author_email}>
+// //end eval adp_author_email
+// endif::[]
+// //end eval adp_render_show_author_info
+// endif::[]
+// include::{adp_attributes_system_resolver_version_info_file}[]
 //
-// L'idée est d'inclure les mêmes fichiers au niveau d'un projet qu'au niveau système.
-// Il faut donc la même organisation. Ce qui change, c'est le chemin vers le dossier des éléments à inclure
-include::../project_loaded.adoc[]
-include::{adp_project_path_loaded}/.adp/project_id.adoc[]
-:adp_project_path_folder: ../project_{adp_project_id}/
-//
-// :adp_root_path: ./
-//
-// include::loader/load_system.adoc[]
-//
-// :adp_root_path: ./../project_ {}
+// Première version
+// :toc: macro
+:doctype: book
+
+
+// //Cette ligne marque la ligne vide obligatoire qui précède
+toc::[]

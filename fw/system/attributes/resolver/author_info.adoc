@@ -1,0 +1,11 @@
+:author:
+:email:
+//
+ifeval::[{adp_render_show_author_info} == 1]
+:author: {adp_author_name}
+ifeval::["{adp_author_email}" != ""]
+:email: {adp_author_email}
+//end eval adp_author_email
+endif::[]
+//end eval adp_render_show_author_info
+endif::[]

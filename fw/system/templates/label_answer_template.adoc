@@ -1,6 +1,1 @@
-ifdef::_fw_current_question_counter[]
-:adp_label_answer_rendered: pass:a,q[[.small]#_Correction de Q{_fw_current_question_counter}_ #]
-endif::_fw_current_question_counter[]
-ifndef::_fw_current_question_counter[]
-:adp_label_answer_rendered: pass:a,q[[.small]#_Correction_ #]
-endif::_fw_current_question_counter[]
+[.small]#_Correction de {adp_question_number}_#

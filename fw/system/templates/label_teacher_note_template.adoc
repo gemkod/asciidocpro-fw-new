@@ -1,1 +1,1 @@
-:adp_label_teacher_note_rendered: pass:a,q[*Note du professeur*]
+*Note du professeur*

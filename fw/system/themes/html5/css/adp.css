@@ -1,0 +1,210 @@
+/*body {*/
+/*  color: red !important;*/
+/*}*/
+/* ============================================================
+   Feuille de style AsciidocPro — backend HTML5
+   Palette : Bleu #0047BB | Rouge #E8003D | Violet #5B2D8E
+             Rouge foncé #C0002E | Gris ardoise #4A4E69
+   ============================================================ */
+
+/* --- Base -------------------------------------------------- */
+body {
+  color: #333333;
+  font-family: "Noto Serif", Georgia, serif;
+}
+
+/* --- Liens ------------------------------------------------- */
+a {
+  color: #0047BB;
+  text-decoration: underline;
+}
+a:hover {
+  color: #E8003D;
+}
+
+/* --- Titres ------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  color: #0047BB;
+    font-weight: bold;
+}
+#header > h1:first-child {
+  color: #0047BB;
+  font-weight: bold;
+}
+h2 {
+  color: #E8003D;
+}
+
+/* --- Code inline (codespan) -------------------------------- */
+code {
+  color: #E8003D;
+  /*background-color: #FFF0F3;*/
+  /*background-color: #fbfcfe;*/
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.92em;
+}
+
+/* --- Captions ---------------------------------------------- */
+.title {
+  color: #0047BB;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+/* --- Page de titre ----------------------------------------- */
+#header h1 {
+  color: #0047BB;
+  font-size: 2.2em;
+  text-align: center;
+}
+#header .details {
+  color: #E8003D;
+  text-align: center;
+}
+#header .revnumber,
+#header .revdate {
+  color: #4A4E69;
+}
+
+/* --- En-tête de page --------------------------------------- */
+#header {
+  border-bottom: 1px solid #E8003D;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+/* --- Largeur max de lecture (uniquement sans toc latérale) - */
+body:not(.toc2) #content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+body:not(.toc2) #header {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Table des matières (inline et latérale) --------------- */
+#toc,
+#toc.toc2 {
+  background-color: #F8F9FD;
+  border-color: #C5D0E6;
+}
+#toctitle {
+  color: #E8003D !important;
+  font-style: normal;
+  font-weight: bold;
+}
+#toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+#toc ul ul {
+  padding-left: 1.5em;
+}
+#toc li {
+  margin: 0.2em 0;
+}
+#toc a {
+  color: #333333;
+  text-decoration: none;
+}
+#toc a:hover {
+  color: #E8003D;
+}
+#toc .sectlevel1 > li > a {
+  color: #E8003D;
+  font-weight: bold;
+}
+#toc .sectlevel2 > li > a {
+  color: #0047BB;
+}
+#toc .sectlevel3 > li > a {
+  color: #333333;
+}
+
+/* --- Tableaux ---------------------------------------------- */
+table.tableblock {
+  border-collapse: collapse;
+  border: 1px solid #C5D0E6;
+  margin-bottom: 1.5em;
+}
+table.tableblock td,
+table.tableblock th {
+  border: 1px solid #C5D0E6;
+}
+table.tableblock thead th {
+  background-color: #0047BB;
+  color: #FFFFFF;
+  padding: 0.5em;
+}
+table.tableblock tbody tr:nth-child(even) {
+  background-color: #EEF2FA;
+}
+table.tableblock td {
+  text-align: inherit;
+  padding: 0.4em;
+}
+
+/* --- Blocs sidebar avec rôles ------------------------------ */
+
+/* Marge commune à tous les blocs */
+.sidebarblock.question,
+.sidebarblock.answer,
+.sidebarblock.teacher_note,
+.sidebarblock.todo {
+  margin-bottom: 1.5em;
+}
+
+/* Question */
+.sidebarblock.question {
+  background-color: #EEF2FA;
+  border: 1px solid #0047BB;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+/* Réponse */
+.sidebarblock.answer {
+  background-color: #FFF0F3;
+  border: 1px solid #E8003D;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+/* Note professeur */
+.sidebarblock.teacher_note {
+  background-color: #F5F0FA;
+  border: 1px dashed #5B2D8E;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+/* Todo */
+.sidebarblock.todo {
+  background-color: #FFF3CD;
+  border: 1px dashed #E8003D;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+/* --- Blocs de code (listing) ------------------------------- */
+.listingblock .content pre {
+  background-color: #f7faff;
+  border: 1px solid #C5D0E6;
+
+  border-radius: 4px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+}
+
+/* --- Pied de page ------------------------------------------ */
+#footer {
+  border-top: 1px solid #E8003D;
+  padding-top: 0.5em;
+  margin-top: 2em;
+  color: #4A4E69;
+  font-size: 0.85em;
+}

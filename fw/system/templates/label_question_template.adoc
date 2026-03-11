@@ -1,8 +1,5 @@
-:_fw_current_question_counter: {counter:_render_question_start}
-ifdef::adp_question_uid[]
-:adp_label_question_rendered: pass:a,q[*Q{_fw_current_question_counter})* [.uid]#{adp_question_uid}#]
-endif::adp_question_uid[]
-ifndef::adp_question_uid[]
-:adp_label_question_rendered: pass:a,q[*Q{_fw_current_question_counter})*]
-endif::adp_question_uid[]
-:!adp_question_uid:
+*Q {counter:adp_question_number})*
+// ifeval::["{adp_question_uid}" != ""]
+// [.uid]# {adp_question_uid} #
+// //end eval adp_question_uid
+// endif::[]

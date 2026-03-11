@@ -1,0 +1,11 @@
+// :linkcss:
+// :stylesdir: {adp_themes_css_system_folder}
+// :stylesheet: adp.css
+:docinfodir: {adp_themes_docinfo_system_folder}
+:docinfo: shared
+//activer/désactiver les boutons afficher/masquer dans le html
+:adp_html_toggle_answer: 1
+//affiche l'index dans le rendu html
+:adp_html_show_index: 1
+//position de l'index (start ou end)
+:adp_html_index_position: start

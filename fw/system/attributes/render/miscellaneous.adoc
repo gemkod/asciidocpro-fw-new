@@ -24,7 +24,7 @@ Exemple :
 ....
 ................................................................................
 ////
-:_render_diagrams_folder: images/.diagram/
+:adp_render_diagrams_folder: images/.diagram/
 ////
 ................................................................................
 Valeur à partir de laquelle commencer à numéro les questions.
@@ -34,7 +34,7 @@ Valeur : un nombre entier
 Remarque : la première question aura la valeur définie + 1
 ................................................................................
 ////
-:_render_question_start: 0
+:adp_render_question_start: 8
 ////
 Fichier de thème à utiliser
 
@@ -44,7 +44,7 @@ dans le dossier `.config/themes/` au niveau global et/ou au niveau local
 
 Exemple : my-custom-theme.yml (nom complet avec l'extension)
 ////
-:_render_pdf_theme_file:
+:adp_render_pdf_theme_file:
 ////
 ................................................................................
 Fichier image du logo à afficher sur la page de couverture
@@ -56,7 +56,7 @@ niveau global, soit au niveau local si défini.
 Le doctype doit être défini à `book` pour générer la page de couverture (comportement par défaut)
 ................................................................................
 ////
-:_render_cover_logo_filename:
+:adp_render_cover_logo_filename:
 ////
 ................................................................................
 Fichier image de l'image à afficher sur la page de couverture
@@ -69,7 +69,7 @@ Le doctype doit être défini à `book` pour générer la page de couverture (vo
 dans les attributs natifs AsciiDoc l'attribut `doctype`.
 ................................................................................
 ////
-:_render_cover_image_filename:
+:adp_render_cover_image_filename:
 ////
 ................................................................................
 Active ou désactive le contexte de publication.
@@ -81,4 +81,4 @@ ressources utilisés dans les composants sont adaptés pour être compatibles av
 le dossier de publication distant.
 ................................................................................
 ////
-:_render_publication_context: 0
+:adp_render_publication_context: 0

@@ -1,0 +1,5 @@
+:adp_label_question: {adp_template_label_question_file}
+:adp_label_answer: {adp_template_label_answer_file}
+:adp_label_answer_hidden: {adp_template_label_answer_available_file}
+:adp_label_teacher_note: {adp_template_label_teacher_note_file}
+:adp_label_todo: {adp_template_label_todo_file}

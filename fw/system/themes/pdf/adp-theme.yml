@@ -1,0 +1,101 @@
+#thème personnalisé AsciidocPro
+extends: default
+base:
+    font-color: '#333333'
+heading:
+    font-color: '#0047BB'
+    h2-font-color: '#E8003D'
+link:
+    font-color: '#0047BB'
+    text-decoration: underline
+title_page:
+    background_image: image::{adp_image_cover_asciidocpro_file}/[]
+#    background_position: top
+    background_position: 0 0
+    background_repeat: no-repeat
+    background_size: cover
+    background-color: '#FFFFFF'
+    font-color: '#4A4E69'
+    text_align: center
+    logo:
+        image: image:{adp_image_logo_image_asciidocpro_file}[]
+        top: 0
+        align: left
+        width: 50
+    title:
+        top: 120
+        font-color: '#0047BB'
+        font-size: $heading_h1_font_size * 1.5
+    authors:
+        font-color: '#E8003D'
+    subtitle:
+        font-color: 5B2D8E
+    revision:
+    font-color: '#4A4E69'
+header:
+    border_color: E8003D
+    border_width: 1
+#  font-color: '#9ba0a7'
+    height: 0.45in
+    line-height: 1.2
+    vertical_align: bottom
+    recto: &shared_header_recto
+        left:
+            content: '{document-title}'
+#            content: "image:C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/logo_ap_181x163.png[] {document-title}"
+        right:
+            content: '{revnumber}'
+    verso: *shared_header_recto
+footer:
+    border_color: E8003D
+    border_width: 1
+    height: 0.55in
+    line-height: 1
+    vertical_align: top
+    recto: &shared_footer_recto
+        left:
+            content: '{author} | {chapter-title} '
+        right:
+            content: 'image:{adp_image_logo_icon_asciidocpro_file}[] {page-number} / {page-count}'
+    verso: *shared_footer_recto
+caption:
+    font-color: '#0047BB'
+    font-size: 9
+toc:
+    h2-font-color: '#E8003D'
+    h3-font-color: '#0047BB'
+table:
+    cell:
+#    padding: $var_table_cell_padding
+        text-align: inherit
+    head:
+        background-color: '#0047BB'
+        font-color: '#FFFFFF'
+    body:
+        stripe_background_color: '#EEF2FA'
+codespan:
+    font-color: '#E8003D'
+role:
+    <sidebar>:
+        question:
+            border-color: '#0047BB'
+            background-color: '#EEF2FA'
+            border-style: solid
+            border-width: 1
+        answer:
+            border-color: '#E8003D'
+            background-color: '#FFF0F3'
+            border-style: solid
+            border-width: 1
+        teacher_note:
+            background-color: '#F5F0FA'
+            border-color: '#5B2D8E'
+            border-style: dashed
+            border-width: 1
+        todo:
+            background-color: '#FFF3CD'
+            border-color: '#E8003D'
+            border-style: dashed
+            border-width: 1
+page:
+    background-image: image:{adp_image_filigrane_asciidocpro_file}[fit=none]

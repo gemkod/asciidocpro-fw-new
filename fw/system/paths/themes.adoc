@@ -1,0 +1,16 @@
+//
+// dossiers
+//
+:adp_themes_system_folder: {adp_system_folder}themes/
+:adp_themes_pdf_system_folder: {adp_themes_system_folder}pdf/
+//pas de slash pour le chemin avec le fichier des css car il est ajouté automatiquement du fait de l'utilisation de l'attribut ``linkcss``
+:adp_themes_html5_system_folder: {adp_themes_system_folder}html5/
+:adp_themes_css_system_folder: {adp_themes_html5_system_folder}css/
+:adp_themes_docinfo_system_folder: {adp_themes_html5_system_folder}docinfo/
+//
+// fichiers
+//
+//
+:adp_theme_docinfo_file: {adp_themes_docinfo_system_folder}docinfo.html
+:adp_theme_docinfo_footer_file: {adp_themes_docinfo_system_folder}docinfo-footer.html
+:adp_theme_asciidoc_css_file: {adp_themes_css_system_folder}adp.css

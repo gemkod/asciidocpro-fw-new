@@ -1,0 +1,20 @@
+ifdef::backend-html5[]
+:toc:
+// :toc-placement: macro
+endif::backend-html5[]
+ifdef::backend-pdf[]
+:toc:
+// Emplacement de la TOC — valeurs : auto, left, right, macro (placement manuel via toc::[])
+:toc-placement: macro
+endif::backend-pdf[]
+// Titre du sommaire (défaut : "Table of Contents")
+:toc-title: Table des matières
+// Active la table des matières — valeurs : auto, left, right, macro
+// Nombre de niveaux de titres inclus dans la TOC (défaut : 2)
+:toclevels: 5
+// Active la numérotation automatique des titres de section
+:sectnums:
+// Niveau maximum de numérotation des sections (défaut : 3)
+:sectnumlevels: 5
+// Préfixe devant les numéros de section — uniquement disponible en doctype book via
+:chapter-signifier: Partie
