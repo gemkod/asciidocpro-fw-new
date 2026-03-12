@@ -1,2 +1,0 @@
-include::{adp_project_folder}.adp/project_id.adoc[opts=optional]
-:adp_project_uid: {adp_project_code_number}

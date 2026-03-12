@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -ExecutionPolicy Bypass -File tools/scripts/resolve-attributes.ps1 -Backend pdf -ShowUnresolved)",
+      "Bash(powershell -ExecutionPolicy Bypass -File tools/scripts/resolve-attributes.ps1 -Backend pdf)"
+    ]
+  }
+}

@@ -17,7 +17,7 @@
 :adp_attributes_system_toc_file : {adp_attributes_system_render_folder}toc.adoc
 :adp_attributes_system_version_file : {adp_attributes_system_render_folder}version.adoc
 :adp_attributes_system_miscellaneous_file : {adp_attributes_system_render_folder}miscellaneous.adoc
-:adp_attributes_system_project_file : {adp_attributes_system_context_folder}project.adoc
+:adp_attributes_system_project_file : {adp_attributes_system_context_folder}project_user.adoc
 :adp_attributes_system_alias_render_file : {adp_attributes_system_alias_folder}render_alias.adoc
 :adp_attributes_system_alias_template_file : {adp_attributes_system_alias_folder}template_alias.adoc
 //resolver

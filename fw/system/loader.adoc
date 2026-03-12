@@ -17,7 +17,9 @@ include::{adp_attributes_system_miscellaneous_file}[]
 include::{adp_attributes_system_theme_pdf_file}[]
 include::{adp_attributes_system_theme_html_file}[]
 include::{adp_attributes_system_project_file}[]
-//chargement des fichiers résolver d'attributs (toujours après avoir chargé tous les attributs)
+//chargement des attributs du projet courant
+include::{adp_project_user_attributes_file}[]
+//chargement des fichiers résolver d'attributs (toujours après avoir chargé tous les attributs, y compris celui du projet courant)
 include::{adp_attributes_system_resolver_version_info_file}[]
 include::{adp_attributes_system_resolver_author_info_file}[]
 // //chargement des alias disponibles dans un document utilisateur

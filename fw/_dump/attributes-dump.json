@@ -1,0 +1,157 @@
+﻿{
+    "adp_fw_version_number":  6,
+    "adp_fw_version_date":  "2026-03-12",
+    "adp_fw_version_note":  "format separateurs",
+    "backend":  "pdf",
+    "hash":  "4787E52D971A2BF0362D611B69FE8864AA88DC40D5D5499999962F92EE23154E",
+    "attributes_count":  106,
+    "sources":  {
+                    "system\\framework_location.adoc":  {
+                                                            "adp_framework_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/"
+                                                        },
+                    "system\\project_loaded.adoc":  {
+                                                        "adp_project_folder":  "D:/test_asciidocprofw-new/"
+                                                    },
+                    "system\\paths\\init.adoc":  {
+                                                     "adp_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/"
+                                                 },
+                    "system\\paths\\attributes.adoc":  {
+                                                           "adp_attributes_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/",
+                                                           "adp_attributes_system_render_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/render/",
+                                                           "adp_attributes_system_content_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/content/",
+                                                           "adp_attributes_system_alias_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/alias/",
+                                                           "adp_attributes_system_context_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/context/",
+                                                           "adp_attributes_system_resolver_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/resolver/",
+                                                           "adp_attributes_system_theme_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/theme/",
+                                                           "adp_attributes_system_show_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/render/show.adoc",
+                                                           "adp_attributes_system_caption_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/render/caption.adoc",
+                                                           "adp_attributes_system_author_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/render/author.adoc",
+                                                           "adp_attributes_system_toc_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/render/toc.adoc",
+                                                           "adp_attributes_system_version_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/render/version.adoc",
+                                                           "adp_attributes_system_miscellaneous_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/render/miscellaneous.adoc",
+                                                           "adp_attributes_system_project_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/context/project_user.adoc",
+                                                           "adp_attributes_system_alias_render_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/alias/render_alias.adoc",
+                                                           "adp_attributes_system_alias_template_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/alias/template_alias.adoc",
+                                                           "adp_attributes_system_resolver_version_info_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/resolver/version_info.adoc",
+                                                           "adp_attributes_system_resolver_author_info_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/resolver/author_info.adoc",
+                                                           "adp_attributes_system_theme_pdf_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/theme/backend_pdf.adoc",
+                                                           "adp_attributes_system_theme_html_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system//attributes/theme/backend_html.adoc"
+                                                       },
+                    "system\\paths\\templates.adoc":  {
+                                                          "adp_templates_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates",
+                                                          "adp_template_label_question_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_question_template.adoc",
+                                                          "adp_template_label_answer_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_answer_template.adoc",
+                                                          "adp_template_label_answer_available_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_answer_available_template.adoc",
+                                                          "adp_template_label_teacher_note_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_teacher_note_template.adoc",
+                                                          "adp_template_label_todo_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_todo_template.adoc"
+                                                      },
+                    "system\\paths\\themes.adoc":  {
+                                                       "adp_themes_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/",
+                                                       "adp_themes_pdf_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/pdf/",
+                                                       "adp_themes_html5_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/html5/",
+                                                       "adp_themes_css_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/html5/css/",
+                                                       "adp_themes_docinfo_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/html5/docinfo/",
+                                                       "adp_theme_docinfo_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/html5/docinfo/docinfo.html",
+                                                       "adp_theme_docinfo_footer_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/html5/docinfo/docinfo-footer.html",
+                                                       "adp_theme_asciidoc_css_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/html5/css/adp.css"
+                                                   },
+                    "system\\paths\\images.adoc":  {
+                                                       "adp_images_system_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/",
+                                                       "adp_image_cover_asciidocpro_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/cover_asciidocpro.png",
+                                                       "adp_image_logo_icon_asciidocpro_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/logo_text_ap_horizontal_25px.png",
+                                                       "adp_image_logo_image_asciidocpro_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/logo_ap_height_100px.png",
+                                                       "adp_image_filigrane_asciidocpro_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/logo_ap_filigrane.png"
+                                                   },
+                    "project_123a\\attributes.adoc":  {
+                                                          "adp_render_show_correction":  "1",
+                                                          "toc":  "left",
+                                                          "test":  "coucou"
+                                                      },
+                    "system\\attributes\\render\\show.adoc":  {
+                                                                  "adp_render_show_metadata":  "1",
+                                                                  "adp_render_show_changelog":  "1",
+                                                                  "adp_render_show_changelog_nested":  "1",
+                                                                  "adp_render_show_teacher_note":  "1",
+                                                                  "adp_render_show_todo":  "1",
+                                                                  "adp_render_show_version_info":  "1",
+                                                                  "adp_render_show_version_zero":  "1",
+                                                                  "adp_render_show_author_info":  "1",
+                                                                  "adp_render_show_index":  "1"
+                                                              },
+                    "system\\attributes\\render\\caption.adoc":  {
+                                                                     "figure-caption":  "",
+                                                                     "table-caption":  "Tableau",
+                                                                     "example-caption":  "Exemple",
+                                                                     "listing-caption":  "Extrait",
+                                                                     "appendix-caption":  "Annexe",
+                                                                     "caution-caption":  "Prudence",
+                                                                     "important-caption":  "Important",
+                                                                     "note-caption":  "Note",
+                                                                     "tip-caption":  "Astuce",
+                                                                     "warning-caption":  "Attention",
+                                                                     "version-label":  "v."
+                                                                 },
+                    "system\\attributes\\render\\author.adoc":  {
+                                                                    "adp_author_name":  "Chuck Norris",
+                                                                    "adp_author_email":  "norris@mail.fr"
+                                                                },
+                    "system\\attributes\\render\\toc.adoc":  {
+                                                                 "toc-placement":  "macro",
+                                                                 "toc-title":  "Table des matières",
+                                                                 "toclevels":  "5",
+                                                                 "sectnums":  "",
+                                                                 "sectnumlevels":  "5",
+                                                                 "chapter-signifier":  "Partie"
+                                                             },
+                    "system\\attributes\\render\\version.adoc":  {
+                                                                     "revnumber":  "23"
+                                                                 },
+                    "system\\attributes\\render\\miscellaneous.adoc":  {
+                                                                           "adp_render_diagrams_folder":  "images/.diagram/",
+                                                                           "adp_render_question_start":  "8",
+                                                                           "adp_render_pdf_theme_file":  "",
+                                                                           "adp_render_cover_logo_filename":  "",
+                                                                           "adp_render_cover_image_filename":  "",
+                                                                           "adp_render_publication_context":  "0"
+                                                                       },
+                    "system\\attributes\\theme\\backend_pdf.adoc":  {
+                                                                        "pdf-themesdir":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/pdf/",
+                                                                        "pdf-theme":  "adp-theme.yml"
+                                                                    },
+                    "system\\attributes\\theme\\backend_html.adoc":  {
+                                                                         "docinfodir":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/themes/html5/docinfo/",
+                                                                         "docinfo":  "shared",
+                                                                         "adp_html_toggle_answer":  "1",
+                                                                         "adp_html_show_index":  "1",
+                                                                         "adp_html_index_position":  "start"
+                                                                     },
+                    "D:\\test_asciidocprofw-new\\.adp\\project_id.adoc":  {
+                                                                              "adp_project_code_number":  "123a"
+                                                                          },
+                    "system\\attributes\\context\\project_user.adoc":  {
+                                                                           "adp_project_uid":  "123a",
+                                                                           "adp_project_appdata_folder":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/project_123a/",
+                                                                           "adp_project_user_attributes_file":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/project_123a/attributes.adoc"
+                                                                       },
+                    "system\\attributes\\resolver\\author_info.adoc":  {
+                                                                           "author":  "Chuck Norris",
+                                                                           "email":  "norris@mail.fr"
+                                                                       },
+                    "system\\attributes\\alias\\render_alias.adoc":  {
+                                                                         "adp_show_correction":  "1",
+                                                                         "adp_question_number":  "8",
+                                                                         "adp_show_teacher_note":  "1",
+                                                                         "adp_show_todo":  "1"
+                                                                     },
+                    "system\\attributes\\alias\\template_alias.adoc":  {
+                                                                           "adp_label_question":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_question_template.adoc",
+                                                                           "adp_label_answer":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_answer_template.adoc",
+                                                                           "adp_label_answer_hidden":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_answer_available_template.adoc",
+                                                                           "adp_label_teacher_note":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_teacher_note_template.adoc",
+                                                                           "adp_label_todo":  "C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/templates/label_todo_template.adoc"
+                                                                       },
+                    "system\\loader.adoc":  {
+                                                "doctype":  "book"
+                                            }
+                }
+}
