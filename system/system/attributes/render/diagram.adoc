@@ -1,0 +1,6 @@
+//format utilisé pour les images de diagramme dans le backend html
+:adp_diagram_format_type_in_html: svg
+//Intègre le SVG des diagrammes directement dans le HTML (ignoré si format png) (valeurs : inline, interactive, none)
+:diagram-svg-type: interactive
+//format utilisé pour les images de diagramme dans le backend pdf
+:adp_diagram_format_type_in_pdf: svg

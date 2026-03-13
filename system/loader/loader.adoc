@@ -1,0 +1,11 @@
+//chargement du chemin du framework
+include::../../projects/framework_location.adoc[]
+//chargement des attributs système
+include::../attributes/attributes_system.adoc
+//chargement des attributs configurables par l'utilisateur mais définis au niveau système
+include::../attributes/attributes_defaults.adoc[]
+//chargement des attributs configurés par l'utilisateur (il s'agit d'une copie du fichier précédent qui pourra être modifié par l'utilisateur. Important : ce fichier contient un import du fichier précédent, comme cela, si ce dernier est mis à jour, le fichier utilisateur contient les mises à jour.
+// include::../projects/{adp_project_code_number}/attributes/attributes_user.adoc[]
+include::../../projects/{adp_project_code_number}/attributes/attributes_user.adoc[opt]
+//chargement des alias (toujours à la fin)
+include::../attributes/attributes_alias.adoc[]

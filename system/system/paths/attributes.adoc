@@ -1,7 +1,7 @@
 //
 // dossiers
 //
-:adp_attributes_system_folder: {adp_system_folder}/attributes/
+:adp_attributes_system_folder: {adp_system_folder}attributes/
 :adp_attributes_system_render_folder : {adp_attributes_system_folder}render/
 :adp_attributes_system_content_folder : {adp_attributes_system_folder}content/
 :adp_attributes_system_alias_folder : {adp_attributes_system_folder}alias/
@@ -14,6 +14,7 @@
 :adp_attributes_system_show_file : {adp_attributes_system_render_folder}show.adoc
 :adp_attributes_system_caption_file : {adp_attributes_system_render_folder}caption.adoc
 :adp_attributes_system_author_file : {adp_attributes_system_render_folder}author.adoc
+:adp_attributes_system_diagram_file : {adp_attributes_system_render_folder}diagram.adoc
 :adp_attributes_system_toc_file : {adp_attributes_system_render_folder}toc.adoc
 :adp_attributes_system_version_file : {adp_attributes_system_render_folder}version.adoc
 :adp_attributes_system_miscellaneous_file : {adp_attributes_system_render_folder}miscellaneous.adoc
@@ -22,6 +23,7 @@
 :adp_attributes_system_alias_template_file : {adp_attributes_system_alias_folder}template_alias.adoc
 //resolver
 :adp_attributes_system_resolver_version_info_file : {adp_attributes_system_resolver_folder}version_info.adoc
+:adp_attributes_system_resolver_diagram_file : {adp_attributes_system_resolver_folder}diagram.adoc
 :adp_attributes_system_resolver_author_info_file : {adp_attributes_system_resolver_folder}author_info.adoc
 //theme
 :adp_attributes_system_theme_pdf_file: {adp_attributes_system_theme_folder}backend_pdf.adoc

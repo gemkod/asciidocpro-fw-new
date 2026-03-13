@@ -1,5 +1,5 @@
 //Chargement des données dynamiques (toujours en premier)
-include::framework_location.adoc[]
+include::../../projects/framework_location.adoc[]
 include::project_loaded.adoc[]
 // Chargement des chemins vers les dossiers et fichiers du framework (toujours avant de faire les inclusions)
 include::paths/init.adoc[]
@@ -11,17 +11,19 @@ include::paths/images.adoc[]
 include::{adp_attributes_system_show_file}[]
 include::{adp_attributes_system_caption_file}[]
 include::{adp_attributes_system_author_file}[]
+include::{adp_attributes_system_diagram_file}[]
 include::{adp_attributes_system_toc_file}[]
 include::{adp_attributes_system_version_file}[]
 include::{adp_attributes_system_miscellaneous_file}[]
 include::{adp_attributes_system_theme_pdf_file}[]
 include::{adp_attributes_system_theme_html_file}[]
 include::{adp_attributes_system_project_file}[]
-//chargement des attributs du projet courant
+// chargement des attributs du projet courant (todo)
 include::{adp_project_user_attributes_file}[]
 //chargement des fichiers résolver d'attributs (toujours après avoir chargé tous les attributs, y compris celui du projet courant)
 include::{adp_attributes_system_resolver_version_info_file}[]
 include::{adp_attributes_system_resolver_author_info_file}[]
+include::{adp_attributes_system_resolver_diagram_file}[]
 // //chargement des alias disponibles dans un document utilisateur
 include::{adp_attributes_system_alias_render_file}[]
 include::{adp_attributes_system_alias_template_file}[]

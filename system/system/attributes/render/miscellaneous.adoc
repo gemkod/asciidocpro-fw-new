@@ -1,0 +1,19 @@
+////
+Date de création : 18/12/2024 à 11:35
+Email : asciidocpro@gmail.
+Licence : Framework AsciidocPro © 2024 by Emmanuel Ravrat is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1
+###############################################################################
+Fichier des attributs de rendu divers (non classables dans les autres fichiers
+
+Ces attributs ont un impact sur ce qui est affiché dans le document
+
+ATTENTION : Ce fichier ne doit contenir aucune ligne vide sauf dans un bloc de
+commentaire ou avant un message d'erreur.
+###############################################################################
+////
+:plantuml-format: png
+//permet d'intégrer le svg dans le fichier de sortie (ne concerne que le backend html)
+:diagram-svg-type: inline
+// :diagram-nocache:
+// :diagram-cachedir:

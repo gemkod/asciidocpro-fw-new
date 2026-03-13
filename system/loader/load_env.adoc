@@ -5,8 +5,9 @@ ifndef::adp_env[]
 :adp_env: dev
 endif::[]
 ifeval::["{adp_env}" == "dev"]
-include::system/loader.adoc[]
+:adp_project_code_number: 00000000
+include::loader.adoc[]
 endif::[]
 ifeval::["{adp_env}" == "prod"]
-include::_dump/attributes-dump.adoc[]
+// include::_dump/attributes-dump.adoc[]
 endif::[]

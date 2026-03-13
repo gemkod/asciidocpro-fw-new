@@ -1,0 +1,11 @@
+//
+// Dossiers
+//
+:adp_user_attributes_folder: {adp_project_appdata_folder}attributes/
+:adp_user_images_folder: {adp_project_appdata_folder}images/
+:adp_user_templates_folder: {adp_project_appdata_folder}templates/
+:adp_user_themes_folder: {adp_project_appdata_folder}themes/
+//
+// Fichiers
+//
+:adp_user_attributes_file: {adp_user_attributes_folder}/attributes.adoc

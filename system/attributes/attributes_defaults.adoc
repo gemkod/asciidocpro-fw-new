@@ -1,0 +1,85 @@
+//region afficher_masquer
+//
+:adp_render_show_correction: 1
+:adp_render_show_teacher_note: 1
+:adp_render_show_todo: 1
+:adp_render_show_author_info: 1
+:adp_render_show_index: 1
+:adp_render_show_version_info: 1
+:adp_html_show_index: 1
+//endregion afficher_masquer
+//
+//region caption
+// Préfixe des légendes de figures (ex: "Figure 1.") — vide pour supprimer
+:figure-caption:
+// Préfixe des légendes de tableaux (ex: "Table 1.") — vide pour supprimer
+:table-caption: Tableau
+// Préfixe des blocs exemple (ex: "Example 1.") — vide pour supprimer
+:example-caption: Exemple
+// Préfixe des blocs de code/listing (ex: "Listing 1.") — vide pour supprimer
+:listing-caption: Extrait
+// Préfixe des annexes (ex: "Appendix A.") — vide pour supprimer
+:appendix-caption: Annexe
+// Libellé du bloc d'admonition CAUTION (défaut : "Caution")
+:caution-caption: Prudence
+// Libellé du bloc d'admonition IMPORTANT (défaut : "Important")
+:important-caption: Important
+// Libellé du bloc d'admonition NOTE (défaut : "Note")
+:note-caption: Note
+// Libellé du bloc d'admonition TIP (défaut : "Tip")
+:tip-caption: Astuce
+// Libellé du bloc d'admonition WARNING (défaut : "Warning")
+:warning-caption: Attention
+// Libellé précédant le numéro de version sur la page de titre (défaut : "Version")
+:version-label: v.
+//endregion caption
+//
+//region auteur
+:adp_author_name:
+:adp_author_email:
+//endregion auteur
+//
+//region diagramme
+//format utilisé pour les images de diagramme dans le backend html
+:adp_plantuml_format_in_html: svg
+:adp_plantuml_format_in_pdf: png
+//Intègre le SVG des diagrammes directement dans le HTML (ignoré si format png) (valeurs : inline, interactive, none)
+:adp_diagram_svg_type: inline
+//format utilisé pour les images de diagramme dans le backend pdf
+:adp_diagram_format_type_in_pdf: svg
+//endregion diagramme
+//
+//region table des matières
+ifdef::backend-html5[]
+:toc:
+// :toc-placement: macro
+endif::backend-html5[]
+ifdef::backend-pdf[]
+:toc:
+// Emplacement de la TOC — valeurs : auto, left, right, macro (placement manuel via toc::[])
+:toc-placement: macro
+endif::backend-pdf[]
+// Titre du sommaire (défaut : "Table of Contents")
+:toc-title: Table des matières
+// Active la table des matières — valeurs : auto, left, right, macro
+// Nombre de niveaux de titres inclus dans la TOC (défaut : 2)
+:toclevels: 5
+// Active la numérotation automatique des titres de section
+:sectnums:
+// Niveau maximum de numérotation des sections (défaut : 3)
+:sectnumlevels: 5
+// Préfixe devant les numéros de section — uniquement disponible en doctype book via
+:chapter-signifier: Partie
+//endregion table des matières
+//
+//region version
+:revnumber:
+:revdate:
+:revremark:
+//endregion version
+//region options HTML
+//position de l'index dans le rendu HTML (start ou end)
+:adp_html_index_position: start
+//activer/désactiver les boutons afficher/masquer dans le html
+:adp_html_toggle_answer: 1
+//endregion options HTML
