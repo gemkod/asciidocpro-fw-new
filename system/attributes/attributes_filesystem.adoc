@@ -6,6 +6,9 @@
 :adp_templates_folder_name: templates
 :adp_themes_folder_name: themes
 :adp_documents_folder_name: documents
+:adp_html_folder_name: html
+:adp_pdf_folder_name: pdf
+:adp_images_folder_name: images
 //endregion Nom des dossiers
 //
 //
@@ -18,6 +21,7 @@
 :adp_template_label_todo_file_name: label_todo_template.adoc
 :adp_attributes_config_file_name: attributes_config.adoc
 :adp_attributes_enable_config_file_name: enable_config.adoc
+:adp_theme_asciidocpro_file_name: adp-theme.yml
 //endregion nom des fichiers
 //
 //
@@ -30,6 +34,7 @@
 :adp_system_docinfo_folder: {adp_system_folder}{adp_docinfo_folder_name}/
 :adp_system_templates_folder: {adp_system_folder}{adp_templates_folder_name}/
 :adp_system_themes_folder: {adp_system_folder}{adp_themes_folder_name}/
+:adp_system_theme_asciidocpro_folder: {adp_system_themes_folder}asciidocpro/
 //endregion Chemins vers les dossiers système
 //region Chemins vers les fichiers d'attribut système
 :adp_system_attributes_system_file: {adp_system_attributes_folder}attributes_system.adoc
@@ -37,7 +42,6 @@
 :adp_system_attributes_alias_file: {adp_system_attributes_folder}attributes_alias.adoc
 :adp_system_attributes_config_file: {adp_system_attributes_folder}{adp_attributes_config_file_name}
 :adp_system_attributes_enum_file: {adp_system_attributes_folder}attributes_enum.adoc
-
 //endregion Chemins vers les fichiers d'attribut système
 //region Chemins vers les fichiers de templates système
 :adp_system_template_question_file: {adp_system_templates_folder}{adp_template_label_question_file_name}
@@ -46,8 +50,12 @@
 :adp_system_template_teacher_note_file: {adp_system_templates_folder}{adp_template_label_teacher_note_file_name}
 :adp_system_template_todo_file: {adp_system_templates_folder}{adp_template_label_todo_file_name}
 //endregion Chemins vers les fichiers de templates système
-//region Chemins vers les fichiers d'attribut du projet chargé
-//endregion Chemins vers les fichiers d'attribut du projet chargé
+//region Chemin vers les images du thème asciidocpro
+:adp_image_cover_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/cover_asciidocpro.png
+:adp_image_logo_image_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_ap_181x163.png
+:adp_image_logo_icon_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_text_ap_horizontal_25px.png
+:adp_image_filigrane_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_ap_filigrane.png
+//endregion Chemin vers les images du thème asciidocpro
 //
 //endregion partie système
 //

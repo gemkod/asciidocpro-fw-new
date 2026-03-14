@@ -9,7 +9,7 @@ link:
     font-color: '#0047BB'
     text-decoration: underline
 title_page:
-    background_image: image::{adp_image_cover_asciidocpro_file}/[]
+    background_image: image:{adp_image_cover_asciidocpro_file}/[]
 #    background_position: top
     background_position: 0 0
     background_repeat: no-repeat

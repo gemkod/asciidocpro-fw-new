@@ -1,2 +1,0 @@
-//chemin vers le dossier system du framework
-:adp_system_folder: {adp_framework_folder}system/

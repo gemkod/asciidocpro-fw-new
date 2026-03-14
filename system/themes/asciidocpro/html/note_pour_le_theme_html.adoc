@@ -1,0 +1,1 @@
+Afin d'avoir un thème html qui soit cohérent dans la previsualisation et le fichier html réellement généré, j'ai choisi la technique "docinfo" en injectant le css dans le head.

@@ -86,8 +86,12 @@
 :adp_docinfo_enable: 1
 //active l'utilisation du docinfo du projet
 :adp_project_docinfo_enable: 0
+//active l'utilisation du docinfo du document
+:adp_document_docinfo_enable: 0
 //niveau d'injection du docinfo
 :docinfo: shared
+//activation de la génération des images en base 64 dans le HTML
+:data-uri:
 //endregion docinfo
 //region templates
 :adp_template_label_question_custom_enable: 0
@@ -101,4 +105,9 @@
 :adp_use_current_config: 1
 //endregion niveau des attributs de configuration à charger
 //region theme
+:pdf-themesdir: {adp_system_theme_asciidocpro_folder}
+:pdf-theme: {adp_theme_asciidocpro_file_name}
 //endregion theme
+//region question
+:adp_render_question_start: 0
+//endregion question

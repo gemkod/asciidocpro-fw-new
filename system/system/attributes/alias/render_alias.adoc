@@ -1,6 +1,0 @@
-//alias à utiliser dans un support asciidoc dans un projet
-:adp_show_correction: {adp_render_show_correction}
-// {adp_render_show_correction}
-:adp_question_number: {adp_render_question_start}
-:adp_show_teacher_note: {adp_render_show_teacher_note}
-:adp_show_todo: {adp_render_show_todo}
