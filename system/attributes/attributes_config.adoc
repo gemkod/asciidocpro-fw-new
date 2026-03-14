@@ -1,3 +1,4 @@
+:azert: niveau du système !!!
 //region afficher_masquer
 //
 :adp_render_show_correction: 1
@@ -50,18 +51,15 @@
 //endregion diagramme
 //
 //region table des matières
-ifdef::backend-html5[]
-:toc:
-// :toc-placement: macro
-endif::backend-html5[]
-ifdef::backend-pdf[]
-:toc:
-// Emplacement de la TOC — valeurs : auto, left, right, macro (placement manuel via toc::[])
-:toc-placement: macro
-endif::backend-pdf[]
+:adp_toc_html_enable: 1
+:adp_toc_placement_html: left
+:adp_toc_html_preview_enable: 1
+:adp_toc_placement_html_preview: right
+:adp_toc_pdf_enable: 1
+//placement dans le pdf : macro, ...
+:adp_toc_placement_pdf:
 // Titre du sommaire (défaut : "Table of Contents")
 :toc-title: Table des matières
-// Active la table des matières — valeurs : auto, left, right, macro
 // Nombre de niveaux de titres inclus dans la TOC (défaut : 2)
 :toclevels: 5
 // Active la numérotation automatique des titres de section
@@ -83,3 +81,24 @@ endif::backend-pdf[]
 //activer/désactiver les boutons afficher/masquer dans le html
 :adp_html_toggle_answer: 1
 //endregion options HTML
+//region docinfo
+//active l'injection docinfo
+:adp_docinfo_enable: 1
+//active l'utilisation du docinfo du projet
+:adp_project_docinfo_enable: 0
+//niveau d'injection du docinfo
+:docinfo: shared
+//endregion docinfo
+//region templates
+:adp_template_label_question_custom_enable: 0
+:adp_template_label_answer_custom_enable: 0
+:adp_template_label_answer_available_custom_enable: 0
+:adp_template_label_teacher_note_custom_enable: 0
+:adp_template_label_todo_custom_enable: 0
+//endregion templates
+//region niveau des attributs de configuration à charger
+//spécifie s'il faut charger
+:adp_use_current_config: 1
+//endregion niveau des attributs de configuration à charger
+//region theme
+//endregion theme

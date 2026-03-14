@@ -1,0 +1,1 @@
+include::{adp_project_attributes_config_file}[]

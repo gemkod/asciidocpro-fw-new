@@ -3,9 +3,9 @@
 :adp_question_number: {adp_render_question_start}
 :adp_show_teacher_note: {adp_render_show_teacher_note}
 :adp_show_todo: {adp_render_show_todo}
-//ajouter les alias pour les label (mobilisant les templates)
-:adp_label_answer:{adp_template_label_answer_file}
-:adp_label_answer_hidden:{adp_template_label_answer_available_file}
-:adp_label_question:{adp_template_label_question_file}
-:adp_label_teacher_note:{adp_template_label_teacher_note_file}
-:adp_label_todo:{adp_template_label_todo_file}
+//ajouter les alias pour les labels (mobilisant les templates)
+:adp_label_answer: {adp_template_label_answer_file}
+:adp_label_answer_hidden: {adp_template_label_answer_available_file}
+:adp_label_question: {adp_template_label_question_file}
+:adp_label_teacher_note: {adp_template_label_teacher_note_file}
+:adp_label_todo: {adp_template_label_todo_file}

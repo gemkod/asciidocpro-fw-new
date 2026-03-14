@@ -1,4 +1,4 @@
-//region diagramme
+//region diagramme`
 ifdef::backend-html5[]
 :plantuml-format: {adp_plantuml_format_in_html}
 endif::backend-html5[]
@@ -43,3 +43,70 @@ endif::[]
 //end eval adp_render_show_version_info
 endif::[]
 //endregion version
+//region docinfo
+ifeval::[{adp_docinfo_enable} == 1]
+:docinfodir: {adp_system_docinfo_folder}
+ifeval::[{adp_project_docinfo_enable} == 1]
+:docinfodir: {adp_project_docinfo_folder}
+//end eval adp_project_docinfo_enable
+endif::[]
+//end eval adp_docinfo_enable
+endif::[]
+//endregion docinfo
+// -----------------------------------------------------------
+//region templates
+// --- question
+:adp_template_label_question_file: {adp_system_template_question_file}
+ifeval::[{adp_template_label_question_custom_enable} == 1]
+:adp_template_label_question_file: {adp_project_template_question_file}
+//end eval
+endif::[]
+// --- answer
+:adp_template_label_answer_file: {adp_system_template_answer_file}
+ifeval::[{adp_template_label_answer_custom_enable} == 1]
+:adp_template_label_answer_file: {adp_project_template_answer_file}
+//end eval
+endif::[]
+// --- answer available
+:adp_template_label_answer_available_file: {adp_system_template_answer_avalaible_file}
+ifeval::[{adp_template_label_answer_avalaible_custom_enable} == 1]
+:adp_template_label_answer_available_file: {adp_project_template_answer_avalaible_file}
+//end eval
+endif::[]
+// --- teacher note
+:adp_template_label_teacher_note_file: {adp_system_template_teacher_note_file}
+ifeval::[{adp_template_label_teacher_note_custom_enable} == 1]
+:adp_template_label_teacher_note_file: {adp_project_template_teacher_note_file}
+//end eval
+endif::[]
+// --- to do
+:adp_template_label_todo_file: {adp_system_template_todo_file}
+ifeval::[{adp_template_label_todo_custom_enable} == 1]
+:adp_template_label_todo_file: {adp_project_template_todo_file}
+//end eval
+endif::[]
+//endregion templates
+// -----------------------------------------------------------
+//region table des matières
+ifdef::backend-html5[]
+:toc: {adp_toc_placement_html}
+ifeval::[{adp_toc_html_enable} == 0]
+:toc!:
+//end eval adp_toc_html_enable
+endif::[]
+ifdef::env-preview[]
+:toc!:
+ifeval::[{adp_toc_html_preview_enable} == 1]
+:toc: {adp_toc_placement_html_preview}
+//end eval adp_toc_html_preview_enable
+endif::[]
+endif::env-preview[]
+endif::backend-html5[]
+ifdef::backend-pdf[]
+:toc: {adp_toc_placement_pdf}
+ifeval::[{adp_toc_pdf_enable} == 0]
+:toc!:
+//end eval adp_toc_pdf_enable
+endif::[]
+endif::backend-pdf[]
+//endregion table des matières

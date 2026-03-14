@@ -1,0 +1,3 @@
+:level_configuration_system: system
+:level_configuration_project: project
+:level_configuration_document: document

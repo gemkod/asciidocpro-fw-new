@@ -1,0 +1,1 @@
+:adp_configuration_enabled: 0

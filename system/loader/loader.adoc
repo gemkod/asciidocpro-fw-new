@@ -1,11 +1,37 @@
 //chargement du chemin du framework
 include::../../projects/framework_location.adoc[]
-//chargement des attributs système
-include::../attributes/attributes_system.adoc
-//chargement des attributs configurables par l'utilisateur mais définis au niveau système
-include::../attributes/attributes_defaults.adoc[]
-//chargement des attributs configurés par l'utilisateur (il s'agit d'une copie du fichier précédent qui pourra être modifié par l'utilisateur. Important : ce fichier contient un import du fichier précédent, comme cela, si ce dernier est mis à jour, le fichier utilisateur contient les mises à jour.
-// include::../projects/{adp_project_code_number}/attributes/attributes_user.adoc[]
-include::../../projects/{adp_project_code_number}/attributes/attributes_user.adoc[opt]
-//chargement des alias (toujours à la fin)
-include::../attributes/attributes_alias.adoc[]
+//chargement des chemins
+include::../attributes/attributes_filesystem.adoc[]
+//chargement des attributs d'énumération
+include::{adp_system_attributes_enum_file}[]
+//chargement des attributs de configuration du système
+include::{adp_system_attributes_config_file}[]
+//region chargement des attributs de configuration
+// // -- chargement des attributs au niveau system
+include::{adp_system_attributes_config_file}[]
+// -- chargement des attributs au niveau projet
+:adp_configuration_enabled: 0
+include::{adp_project_attributes_enable_config_file}[]
+ifeval::[{adp_configuration_enabled} == 1]
+include::{adp_project_attributes_config_file}[]
+//end eval adp_configuration_enabled
+endif::[]
+// -- chargement des attributs au niveau document
+:adp_configuration_enabled: 0
+include::{adp_document_attributes_enable_config_file}[]
+ifeval::[{adp_configuration_enabled} == 1]
+include::{adp_document_attributes_config_file}[]
+//end eval adp_configuration_enabled
+endif::[]
+//endregion chargement des attributs de configuration
+//chargement des resolver
+include::{adp_system_attributes_resolver_file}[]
+//chargement des alias (toujours en dernier)
+include::{adp_system_attributes_alias_file}[]
+//
+//
+//
+//
+//
+//en dur pour l'instant
+:doctype: book

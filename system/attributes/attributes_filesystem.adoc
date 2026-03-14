@@ -1,0 +1,103 @@
+//region Nom des dossiers
+:adp_projects_user_folder_name: projects
+:adp_attributes_folder_name: attributes
+:adp_docinfo_folder_name: docinfo
+:adp_system_folder_name: system
+:adp_templates_folder_name: templates
+:adp_themes_folder_name: themes
+:adp_documents_folder_name: documents
+//endregion Nom des dossiers
+//
+//
+//
+//region nom des fichiers
+:adp_template_label_question_file_name: label_question_template.adoc
+:adp_template_label_answer_file_name: label_answer_template.adoc
+:adp_template_label_answer_available_file_name: label_answer_available_template.adoc
+:adp_template_label_teacher_note_file_name: label_teacher_note_template.adoc
+:adp_template_label_todo_file_name: label_todo_template.adoc
+:adp_attributes_config_file_name: attributes_config.adoc
+:adp_attributes_enable_config_file_name: enable_config.adoc
+//endregion nom des fichiers
+//
+//
+//
+//region partie système
+//
+//region Chemins vers les dossiers système
+:adp_system_folder: {adp_framework_folder}{adp_system_folder_name}/
+:adp_system_attributes_folder: {adp_system_folder}{adp_attributes_folder_name}/
+:adp_system_docinfo_folder: {adp_system_folder}{adp_docinfo_folder_name}/
+:adp_system_templates_folder: {adp_system_folder}{adp_templates_folder_name}/
+:adp_system_themes_folder: {adp_system_folder}{adp_themes_folder_name}/
+//endregion Chemins vers les dossiers système
+//region Chemins vers les fichiers d'attribut système
+:adp_system_attributes_system_file: {adp_system_attributes_folder}attributes_system.adoc
+:adp_system_attributes_resolver_file: {adp_system_attributes_folder}attributes_resolver.adoc
+:adp_system_attributes_alias_file: {adp_system_attributes_folder}attributes_alias.adoc
+:adp_system_attributes_config_file: {adp_system_attributes_folder}{adp_attributes_config_file_name}
+:adp_system_attributes_enum_file: {adp_system_attributes_folder}attributes_enum.adoc
+
+//endregion Chemins vers les fichiers d'attribut système
+//region Chemins vers les fichiers de templates système
+:adp_system_template_question_file: {adp_system_templates_folder}{adp_template_label_question_file_name}
+:adp_system_template_answer_file: {adp_system_templates_folder}{adp_template_label_answer_file_name}
+:adp_system_template_answer_avalaible_file: {adp_system_templates_folder}{adp_template_label_answer_available_file_name}
+:adp_system_template_teacher_note_file: {adp_system_templates_folder}{adp_template_label_teacher_note_file_name}
+:adp_system_template_todo_file: {adp_system_templates_folder}{adp_template_label_todo_file_name}
+//endregion Chemins vers les fichiers de templates système
+//region Chemins vers les fichiers d'attribut du projet chargé
+//endregion Chemins vers les fichiers d'attribut du projet chargé
+//
+//endregion partie système
+//
+//
+//
+//region partie projet courant chargé
+//
+//region Chemins vers les dossiers du projet
+:adp_current_project_folder: {adp_framework_folder}{adp_projects_user_folder_name}/{adp_project_code_number}/
+:adp_project_attributes_folder: {adp_current_project_folder}{adp_attributes_folder_name}/
+:adp_project_docinfo_folder: {adp_current_project_folder}{adp_docinfo_folder_name}/
+:adp_project_templates_folder: {adp_current_project_folder}{adp_templates_folder_name}/
+:adp_project_themes_folder: {adp_current_project_folder}{adp_themes_folder_name}/
+//endregion Chemins vers les dossiers du projet
+//region Chemins vers les fichiers du projet
+//region Chemin vers les fichiers d'attributs du projet
+:adp_project_attributes_enable_config_file: {adp_project_attributes_folder}{adp_attributes_enable_config_file_name}
+:adp_project_attributes_config_file: {adp_project_attributes_folder}{adp_attributes_config_file_name}
+//endregion Chemin vers les fichiers d'attributs du projet
+//region Chemin vers les fichiers de template du projet
+:adp_project_template_question_file: {adp_project_templates_folder}{adp_template_label_question_file_name}
+:adp_project_template_answer_file: {adp_project_templates_folder}{adp_template_label_answer_file_name}
+:adp_project_template_answer_avalaible_file: {adp_project_templates_folder}{adp_template_label_answer_available_file_name}
+:adp_project_template_teacher_note_file: {adp_project_templates_folder}{adp_template_label_teacher_note_file_name}
+:adp_project_template_todo_file: {adp_project_templates_folder}{adp_template_label_todo_file_name}
+//endregion Chemin vers les fichiers de template du projet
+//
+//endregion partie projet courant chargé
+//
+//
+//
+//region partie document courant chargé
+//
+//region Chemins vers les dossiers du document
+:adp_documents_folder: {adp_current_project_folder}{adp_documents_folder_name}/
+:adp_current_document_folder: {adp_documents_folder}{adp_meta_uid}/
+:adp_document_attributes_folder: {adp_current_document_folder}{adp_attributes_folder_name}/
+:adp_document_docinfo_folder: {adp_current_document_folder}{adp_docinfo_folder_name}/
+:adp_document_templates_folder: {adp_current_document_folder}{adp_templates_folder_name}/
+:adp_document_themes_folder: {adp_current_document_folder}{adp_themes_folder_name}/
+//endregion Chemins vers les dossiers du document
+//region Chemins vers les fichiers d'attributs du document
+:adp_document_attributes_enable_config_file: {adp_document_attributes_folder}{adp_attributes_enable_config_file_name}
+:adp_document_attributes_config_file: {adp_document_attributes_folder}{adp_attributes_config_file_name}
+//endregion Chemins vers les fichiers d'attributs du document
+//region Chemin vers les fichiers de template du document
+:adp_document_template_question_file: {adp_document_templates_folder}{adp_template_label_question_file_name}
+:adp_document_template_answer_file: {adp_document_templates_folder}{adp_template_label_answer_file_name}
+:adp_document_template_answer_avalaible_file: {adp_document_templates_folder}{adp_template_label_answer_available_file_name}
+:adp_document_template_teacher_note_file: {adp_document_templates_folder}{adp_template_label_teacher_note_file_name}
+:adp_document_template_todo_file: {adp_document_templates_folder}{adp_template_label_todo_file_name}
+//endregion Chemin vers les fichiers de template du document
+//endregion partie document courant chargé
