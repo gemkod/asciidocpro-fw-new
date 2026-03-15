@@ -30,12 +30,14 @@ $output = ""
 
 foreach ($file in $cssFiles) {
     $css     = Get-Content $file.FullName -Raw -Encoding UTF8
-    $output += "<style>`n$css`n</style>`n"
+    $output += "<!-- $($file.Name) -->`n"
+    $output += "<style>`n$css`n</style>`n`n"
 }
 
 foreach ($file in $jsFiles) {
     $js      = Get-Content $file.FullName -Raw -Encoding UTF8
-    $output += "<script>`n$js`n</script>`n"
+    $output += "<!-- $($file.Name) -->`n"
+    $output += "<script>`n$js`n</script>`n`n"
 }
 
 $output | Set-Content $docinfoPath -Encoding UTF8

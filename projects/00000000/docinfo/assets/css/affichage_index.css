@@ -1,0 +1,129 @@
+/*<!--CSS pour l'affichage de l'index-->*/
+
+/* --- Mots-clés dans le texte --- */
+span.keyword {
+    color: #5B2D8E;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px dotted #5B2D8E;
+}
+
+span.keyword.adp-kw-active {
+    background-color: #fff176;
+    border-radius: 3px;
+    border-bottom: none;
+}
+
+/* --- Zone d'index --- */
+#adp-index-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 1em 0;
+    border-top: 1px solid #C5D0E6;
+    border-bottom: 1px solid #C5D0E6;
+    margin: 1.5em 0;
+}
+
+
+#adp-index-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.adp-index-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border: 1px solid #0047BB;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #0047BB;
+    font-size: 0.82rem;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    cursor: pointer;
+    user-select: none;
+    transition: background .2s, color .2s;
+}
+
+.adp-index-tag:hover {
+    background: #EEF2FA;
+    border-color: #003a99;
+    color: #003a99;
+}
+
+.adp-index-tag.adp-index-tag-active {
+    background: #EEF2FA;
+    border-color: #0047BB;
+    font-weight: bold;
+}
+
+.adp-index-badge {
+    background: #0047BB;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* --- Barre de navigation flottante --- */
+#adp-kw-navbar {
+    position: fixed;
+    bottom: 80px;
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    right: 22px;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #1a1a2e;
+    color: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+    font-size: 0.82rem;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    user-select: none;
+}
+
+#adp-kw-navbar-term {
+    color: #c8a8f0;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+#adp-kw-counter {
+    min-width: 40px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#adp-kw-navbar button {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+    padding: 0;
+}
+
+#adp-kw-navbar button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+#adp-kw-close {
+    font-size: 0.75rem !important;
+    margin-left: 4px;
+}

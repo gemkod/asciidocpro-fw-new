@@ -1,0 +1,327 @@
+
+/*styles personnalisÃ©s*/
+
+/* Image de fond fixe avec effet filigrane */
+body::before {
+    content: ''; /* NÃ©cessaire pour crÃ©er le pseudo-Ã©lÃ©ment */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../config/images/er/logo_984px.png'); /* Chemin de l'image */
+    background-repeat: no-repeat;
+    background-size: 70%; /* Ajuster l'image Ã  la taille de la page */
+    background-position: center;
+    opacity: 0.07; /* Transparence pour l'effet filigrane */
+    z-index: -1; /* Place l'image derriÃ¨re tout le contenu */
+    pointer-events: none; /* Permet au contenu de rester interactif */
+}
+
+body {
+    background-color: #d6d6d6;
+    /*background-color: #4c4c4c;*/
+    /*color: white;*/
+}
+
+#header > h1:first-child {
+    color: #550985 !important;
+}
+
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
+    color: #550985;
+}
+
+h1, h2, h3, h4, h5 {
+    background-color: #ffffff;
+}
+
+img {
+    border: solid 3px silver;
+}
+
+/* Centrer le contenu de l'imageblock */
+.imageblock {
+    text-align: center; /* Centre tout le contenu de l'imageblock */
+}
+
+/* Centrer le titre sous l'image */
+.imageblock .title {
+    text-align: center; /* Centre le texte de la lÃ©gende */
+}
+
+/* blocs d'avertissement*/
+
+.admonitionblock {
+    border-radius: 3px; /* Coins arrondis */
+    padding: 10px; /* Espacement interne */
+    margin: 10px 0; /* Espacement externe */
+}
+
+.admonitionblock table {
+    margin-bottom: 0;
+}
+
+.admonitionblock.note {
+    /*color: #007bff;*/
+    /*border: 2px solid #19407C; !* Couleur de la bordure *!*/
+    background-color: #f3f7fd; /* Couleur de fond */
+}
+
+.admonitionblock.note .content {
+    color: #19407C;
+}
+
+.admonitionblock td.icon .icon-note::before {
+    content: "\f249"; /* note */
+    color: #19407C
+}
+
+.admonitionblock.warning {
+    /*border: 2px solid #BF0000; !* Couleur de la bordure *!*/
+    background-color: #FFF7F7; /* Couleur de fond */
+}
+
+.admonitionblock.warning .content {
+    color: #BF0000;
+}
+
+.admonitionblock td.icon .icon-warning::before {
+    content: "\f1e2"; /* warning */
+    color: #BF0000
+}
+
+.admonitionblock.tip {
+    /*border: 2px solid #008975; !* Couleur de la bordure *!*/
+    background-color: #f4fffd; /* Couleur de fond */
+}
+
+.admonitionblock.tip .content {
+    color: #008975;
+}
+
+.admonitionblock td.icon .icon-tip::before {
+    content: "\f0eb"; /* tip */
+    color: #008975
+}
+
+.admonitionblock.caution {
+    /*border: 2px solid #bf4c00; !* Couleur de la bordure *!*/
+    background-color: #fff7f2; /* Couleur de fond */
+}
+
+.admonitionblock.caution .content {
+    color: #bf4c00;
+}
+
+.admonitionblock td.icon .icon-caution::before {
+    content: "\f0e7"; /* caution */
+    color: #bf4c00
+}
+
+.admonitionblock.important {
+    /*border: 2px solid #bf4c00; !* Couleur de la bordure *!*/
+    background-color: #fff7fe; /* Couleur de fond */
+}
+
+.admonitionblock.important .content {
+    color: #bf00a4;
+}
+
+.admonitionblock td.icon .icon-important::before {
+    content: "\f005"; /* caution */
+    color: #bf00a4
+}
+
+thead tr th, tbody tr th {
+    /*background: #f7f8f7*/
+    /*background-color: #c38cf8;*/
+    background-color: #d5cffc;
+}
+
+table.stripes-all > * > tr, table.stripes-odd > * > tr:nth-of-type(odd), table.stripes-even > * > tr:nth-of-type(even), table.stripes-hover > * > tr:hover {
+    /*background: #f6ecff;*/
+    /*background: #f6ecff;*/
+    background: #faf9ff;
+
+}
+
+:not(pre):not([class^=L]) > code {
+    background-color: #F6F4FE;
+    color: #7C3AED;
+}
+
+/* RÃ´le sur des sidebarblock */
+
+.question {
+    background-color: #F8FBFF;
+    border: solid 1px #5998D3;
+}
+
+.answer {
+    background-color: #FEF9FF;
+    border: dashed 1px #d63af1;
+}
+
+.noteprof, .teacher_note {
+    background-color: #d4f1dc;
+    border: dashed 0 #d63af1;
+}
+
+.resourcesstudent {
+    background-color: #fffbe6;
+    border: solid 1px #007BFF;
+}
+
+.resourcesteacher {
+    background-color: #d4f1dc;
+    border: solid 1px #007BFF;
+}
+
+.sidebarblock.todo {
+    background-color: #f6f7cf;
+    border: solid 0 #cc792a;
+}
+
+.skill {
+    background-color: #ffffff;
+    border: solid 1px #999999;
+}
+
+
+/*rÃ´les en ligne*/
+
+span.todo {
+    background-color: #FFA500;
+    color: #FFFFCC;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.keyword, .role-definition {
+    color: #e82020; /* couleur diffÃ©rente de celle du pdf compte tenu de la couleur de fond de page utilisÃ©e */
+    font-weight: bold;
+}
+
+.chapter {
+    color: #428BCA;
+}
+
+span.warning {
+    background-color: #FFA500;
+    color: #FFFFCC;
+}
+
+span.notable {
+    background-color: #fff29d;
+}
+
+.adpm-version-number, .adpm-version-date {
+    font-weight: bold;
+}
+
+/* Afin d'obtenir un fond clair dans les blocs de code SANS coloration syntaxique */
+.Coderay {
+    background-color: #f1f1f1;
+}
+
+.colist {
+    /*background-color: white;*/
+    border: solid 2px #f1f1f1;
+}
+
+.linkdef {
+    text-decoration: underline;
+    text-decoration-color: #e82020;
+    color: rgba(0, 0, 0, .8);
+}
+
+.definition {
+    background-color: #f9f8f4;
+    border: solid 2px #e1dac2;
+}
+
+.uidrs {
+    background-color: #ffffff;
+    font-family: monospace;
+}
+
+.uid {
+    background-color: #ffffff;
+    color: #0b5180;
+    font-size: 0.6rem;
+    border-radius: 7px;
+}
+
+.filename {
+    color: #df2bd6;
+    text-decoration: none;
+    background-color: white;
+    font-family: monospace;
+}
+
+.foldername {
+    color: #227e3a;
+    text-decoration: none;
+    background-color: white;
+}
+
+hr {
+    border: #ff9999 solid 1px;
+}
+
+/* ============================================================
+   Styles pour tableaux avec rôle (TableRoleNew.rb)
+   ============================================================ */
+
+/* .condensed — padding réduit */
+table.tableblock.condensed tr th,
+table.tableblock.condensed tr td {
+    padding: 2px 4px;
+}
+
+/* .dark — tableau sombre */
+table.tableblock.dark {
+    background-color: #2C3E50;
+    border-color: #1A252F;
+}
+
+table.tableblock.dark tr th,
+table.tableblock.dark tr td {
+    color: #ECF0F1;
+}
+
+table.tableblock.dark thead tr th,
+table.tableblock.dark tbody tr th {
+    background-color: #1A252F;
+    color: #ECF0F1;
+}
+
+table.tableblock.dark > * > tr:nth-of-type(even) {
+    background-color: #34495E;
+}
+
+table.tableblock.dark > * > tr:nth-of-type(odd) {
+    background-color: #2C3E50;
+}
+
+/* ============================================================
+   Styles de cellules personnalisés (TableCellStyleLetter.rb)
+   t| → celltitre, i| → cellimportant, w| → cellwarning
+   ============================================================ */
+
+/* t| celltitre — fond + gras */
+td.celltitre, th.celltitre {
+    background-color: #f6ecff !important;
+    font-weight: bold;
+}
+
+/* i| cellimportant — fond */
+td.cellimportant, th.cellimportant {
+    background-color: #E74C3C !important;
+}
+
+/* w| cellwarning — fond */
+td.cellwarning, th.cellwarning {
+    background-color: #F39C12 !important;
+}

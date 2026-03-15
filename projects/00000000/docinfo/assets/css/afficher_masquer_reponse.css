@@ -1,0 +1,106 @@
+.sidebarblock.question {
+    position: relative;
+}
+
+/* État par défaut = correction visible = rouge "Cacher la correction" */
+.adp-toggle-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px 3px 8px;
+    border: 1px solid #E8003D;
+    border-radius: 20px;
+    background: #FFF0F3;
+    color: #E8003D;
+    font-size: 0.7rem;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    cursor: pointer;
+    user-select: none;
+    transition: background .2s, color .2s;
+    z-index: 10;
+}
+
+.adp-toggle-btn:hover {
+    background: #ffe0e6;
+    border-color: #C0002E;
+    color: #C0002E;
+}
+
+/* État masqué = correction cachée = bleu "Voir la correction" */
+.adp-toggle-btn.is-hidden-state {
+    border-color: #0047BB;
+    color: #0047BB;
+    background: #ffffff;
+}
+
+.adp-toggle-btn.is-hidden-state:hover {
+    background: #EEF2FA;
+    border-color: #003a99;
+    color: #003a99;
+}
+
+.sidebarblock.answer.adp-hidden {
+    display: none !important;
+}
+
+#adp-global-bar {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 9999;
+    display: flex;
+    gap: 8px;
+}
+
+#adp-global-bar button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 28px;
+    font-size: 0.78rem;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+    transition: background .2s, transform .15s, opacity .2s;
+    user-select: none;
+}
+
+#adp-btn-reveal {
+    background: #1e3a2f;
+    color: #a8e6c0;
+    border: 1px solid #2d5a42;
+}
+
+#adp-btn-reveal:hover:not(:disabled) {
+    background: #2a5040;
+    transform: translateY(-1px);
+}
+
+#adp-btn-hide {
+    background: #2c2c2c;
+    color: #e8d8a0;
+    border: 1px solid #5a4e28;
+}
+
+#adp-btn-hide:hover:not(:disabled) {
+    background: #3d3520;
+    transform: translateY(-1px);
+}
+
+#adp-global-bar button:disabled {
+    opacity: 0.35;
+    cursor: default;
+    transform: none;
+}
+
+#adp-global-bar button span.adp-badge {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 0.68rem;
+    font-weight: bold;
+}

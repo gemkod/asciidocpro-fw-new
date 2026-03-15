@@ -1,0 +1,276 @@
+/* ============================================================
+   Feuille de style AsciidocPro — backend HTML5
+   Palette : Bleu #0047BB | Rouge #E8003D | Violet #5B2D8E
+             Rouge foncé #C0002E | Gris ardoise #4A4E69
+   ============================================================ */
+/*
+{adp_image_filigrane_asciidocpro_file}
+*/
+/* --- Base -------------------------------------------------- */
+body {
+    color: #333333;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    background-image: url('data:image/jpeg;base64,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');
+    background-attachment: fixed; /* L'image reste fixe au scroll */
+    background-size: cover; /* Couvre toute la page */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* --- Liens ------------------------------------------------- */
+a {
+    color: #0047BB;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #E8003D;
+}
+
+/* --- Titres ------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+    color: #0047BB;
+    font-weight: bold;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+#header > h1:first-child,
+#content > h1:first-child:not([class]) {
+    color: #0047BB !important;
+    font-weight: bold !important;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    text-align: center;
+    margin-bottom: 1em;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+h2 {
+    color: #E8003D;
+}
+
+/* --- Code inline (codespan) -------------------------------- */
+code {
+    color: #E8003D;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-size: 0.92em;
+}
+
+/* --- Captions ---------------------------------------------- */
+.title {
+    color: #0047BB;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* --- Page de titre ----------------------------------------- */
+#header h1 {
+    color: #0047BB;
+    font-size: 2.2em;
+    text-align: center;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+#header .details {
+    color: #E8003D;
+    text-align: left;
+    margin-bottom: 1em;
+    border-bottom: none;
+}
+
+#header .revnumber,
+#header .revdate {
+    color: #4A4E69;
+}
+
+/* --- En-tête de page — aucun trait ------------------------- */
+#header {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 1em;
+}
+
+/* Neutralise la bordure grise Asciidoctor par défaut
+   entre le h1 et la TDM dans #header               */
+#header > h1:first-child + #toc {
+    border-top: none;
+    margin-top: 1em;
+}
+
+/* Neutralise la bordure grise Asciidoctor sous h1 seul */
+#header > h1:only-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* --- Largeur max de lecture (uniquement sans toc latérale) -- */
+body:not(.toc2) #content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+body:not(.toc2) #header {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+    body.toc2 #content,
+    body.toc2 #header {
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --- Rôles --------------- */
+span.keyword {
+    color: #5B2D8E;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px dotted #5B2D8E;
+}
+
+/* --- Table des matières (inline et latérale) --------------- */
+#toc,
+#toc.toc2 {
+    background-color: #F8F9FD;
+    border-color: #C5D0E6;
+    padding: 1.25em;
+    border: 1px solid #e0e0dc;
+    border-radius: 4px;
+}
+
+#toctitle {
+    color: #E8003D !important;
+    font-style: normal;
+    font-weight: bold;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    margin-top: 0;
+}
+
+#toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+#toc ul ul {
+    padding-left: 1.5em;
+}
+
+#toc li {
+    margin: 0.2em 0;
+}
+
+#toc a {
+    color: #333333;
+    text-decoration: none;
+}
+
+#toc a:hover {
+    color: #E8003D;
+}
+
+#toc .sectlevel1 > li > a {
+    color: #E8003D;
+    font-weight: bold;
+}
+
+#toc .sectlevel2 > li > a {
+    color: #0047BB;
+}
+
+#toc .sectlevel3 > li > a {
+    color: #333333;
+}
+
+/* --- Tableaux ---------------------------------------------- */
+table.tableblock {
+    border-collapse: collapse;
+    border: 1px solid #C5D0E6;
+    margin-bottom: 1.5em;
+}
+
+table.tableblock td,
+table.tableblock th {
+    border: 1px solid #C5D0E6;
+}
+
+table.tableblock thead th {
+    background-color: #0047BB;
+    color: #FFFFFF;
+    padding: 0.5em;
+}
+
+table.tableblock tbody tr:nth-child(even) {
+    background-color: #EEF2FA;
+}
+
+table.tableblock td {
+    text-align: inherit;
+    padding: 0.4em;
+}
+
+/* --- Blocs sidebar avec rôles ------------------------------ */
+
+/* Marge commune à tous les blocs */
+.sidebarblock.question,
+.sidebarblock.answer,
+.sidebarblock.teacher_note,
+.sidebarblock.todo {
+    margin-bottom: 1.5em;
+}
+
+/* Question */
+.sidebarblock.question {
+    background-color: #EEF2FA;
+    border: 1px solid #0047BB;
+    border-radius: 4px;
+    padding: 1em;
+}
+
+/* Réponse */
+.sidebarblock.answer {
+    background-color: #FFF0F3;
+    border: 1px solid #E8003D;
+    border-radius: 4px;
+    padding: 1em;
+}
+
+/* Note professeur */
+.sidebarblock.teacher_note {
+    background-color: #F5F0FA;
+    border: 1px dashed #5B2D8E;
+    border-radius: 4px;
+    padding: 1em;
+}
+
+/* Todo */
+.sidebarblock.todo {
+    background-color: #FFF3CD;
+    border: 1px dashed #E8003D;
+    border-radius: 4px;
+    padding: 1em;
+}
+
+/* --- Blocs de code (listing) ------------------------------- */
+.listingblock .content pre {
+    background-color: #f7faff;
+    border: 1px solid #C5D0E6;
+    border-radius: 4px;
+    padding: 1em;
+    margin-bottom: 1.5em;
+}
+
+/* --- Pied de page ------------------------------------------ */
+#footer {
+    border-top: none;
+    padding-top: 0.5em;
+    margin-top: 2em;
+    color: #4A4E69;
+    font-size: 0.85em;
+}
