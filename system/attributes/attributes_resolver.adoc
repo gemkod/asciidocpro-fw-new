@@ -45,13 +45,13 @@ endif::[]
 //endregion version
 //region docinfo
 ifeval::[{adp_docinfo_enable} == 1]
-:docinfodir: {adp_system_docinfo_folder}
+:docinfodir: {adp_system_docinfo_folder}{adp_system_docinfo_vendor}/
 ifeval::[{adp_project_docinfo_enable} == 1]
-:docinfodir: {adp_project_docinfo_folder}
+:docinfodir: {adp_project_docinfo_folder}{adp_project_docinfo_vendor}/
 //end eval adp_project_docinfo_enable
 endif::[]
 ifeval::[{adp_document_docinfo_enable} == 1]
-:docinfodir: {adp_document_docinfo_folder}
+:docinfodir: {adp_document_docinfo_folder}{adp_document_docinfo_vendor}/
 //end eval adp_project_docinfo_enable
 endif::[]
 //end eval adp_docinfo_enable

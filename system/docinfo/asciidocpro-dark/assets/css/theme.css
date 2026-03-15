@@ -1,0 +1,430 @@
+/* ============================================================
+   Feuille de style AsciidocPro — backend HTML5 — thème SOMBRE
+   Palette sombre : Bleu éclairci #4D82E5 | Rouge éclairci #FF4D75
+                    Violet éclairci #9B6DD8 | Ardoise claire #8A90B0
+                    Fond #0E1117 | Surface #161B27 | Texte #E8EAF2
+   ============================================================ */
+
+/* --- Base -------------------------------------------------- */
+body {
+    color: #E8EAF2;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    background-color: #0E1117;
+    background-image: none;
+}
+
+/* --- Liens ------------------------------------------------- */
+a {
+    color: #4D82E5;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #FF4D75;
+}
+
+/* --- Titres ------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+    color: #4D82E5;
+    font-weight: bold;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+#header > h1:first-child,
+#content > h1:first-child:not([class]) {
+    color: #4D82E5 !important;
+    font-weight: bold !important;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    text-align: center;
+    margin-bottom: 1em;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+h2 {
+    color: #FF4D75;
+}
+
+/* --- Code inline (codespan) -------------------------------- */
+code {
+    color: #FF4D75;
+    background-color: #1E2640;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-size: 0.92em;
+}
+
+/* --- Captions ---------------------------------------------- */
+.title {
+    color: #4D82E5;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* --- Page de titre ----------------------------------------- */
+#header h1 {
+    color: #4D82E5;
+    font-size: 2.2em;
+    text-align: center;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+#header .details {
+    color: #FF4D75;
+    text-align: left;
+    margin-bottom: 1em;
+    border-bottom: none;
+}
+
+#header .revnumber,
+#header .revdate {
+    color: #8A90B0;
+}
+
+/* --- En-tête de page — aucun trait ------------------------- */
+#header {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 1em;
+}
+
+#header > h1:first-child + #toc {
+    border-top: none;
+    margin-top: 1em;
+}
+
+#header > h1:only-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* --- Largeur max de lecture (uniquement sans toc latérale) -- */
+body:not(.toc2) #content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+body:not(.toc2) #header {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+    body.toc2 #content,
+    body.toc2 #header {
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --- Rôles --------------- */
+span.keyword {
+    color: #9B6DD8;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px dotted #9B6DD8;
+}
+
+/* --- Table des matières (inline et latérale) --------------- */
+#toc,
+#toc.toc2 {
+    background-color: #161B27 !important;
+    border-color: #2A3455 !important;
+    padding: 1.25em;
+    border: 1px solid #2A3455 !important;
+    border-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    #toc.toc2 {
+        background: #161B27 !important;
+        border-right: 1px solid #2A3455 !important;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    #toc.toc2 {
+        background: #161B27 !important;
+    }
+}
+
+#toctitle {
+    color: #FF4D75 !important;
+    font-style: normal;
+    font-weight: bold;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    margin-top: 0;
+}
+
+#toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+#toc ul ul {
+    padding-left: 1.5em;
+}
+
+#toc li {
+    margin: 0.2em 0;
+}
+
+#toc a {
+    color: #B0B6CC;
+    text-decoration: none;
+}
+
+#toc a:hover {
+    color: #FF4D75;
+}
+
+#toc .sectlevel1 > li > a {
+    color: #FF4D75;
+    font-weight: bold;
+}
+
+#toc .sectlevel2 > li > a {
+    color: #4D82E5;
+}
+
+#toc .sectlevel3 > li > a {
+    color: #B0B6CC;
+}
+
+/* --- Tableaux ---------------------------------------------- */
+table.tableblock {
+    border-collapse: collapse !important;
+    border: 1px solid #2A3455 !important;
+    margin-bottom: 1.5em;
+    background-color: #0E1117 !important;
+}
+
+table.tableblock td,
+table.tableblock th {
+    border: 1px solid #2A3455 !important;
+    color: #E8EAF2 !important;
+    background-color: #0E1117 !important;
+}
+
+table.tableblock thead th {
+    background-color: #1A2B5E !important;
+    color: #B8CEFF !important;
+    padding: 0.5em;
+}
+
+table.tableblock tbody tr:nth-child(odd) td {
+    background-color: #0E1117 !important;
+}
+
+table.tableblock tbody tr:nth-child(even) td {
+    background-color: #161B27 !important;
+}
+
+table.tableblock td {
+    text-align: inherit;
+    padding: 0.4em;
+}
+
+/* --- Blocs sidebar avec rôles ------------------------------ */
+
+.sidebarblock.question,
+.sidebarblock.answer,
+.sidebarblock.teacher_note,
+.sidebarblock.todo {
+    margin-bottom: 1.5em;
+}
+
+/* Question */
+.sidebarblock.question {
+    background-color: #131D33;
+    border: 1px solid #4D82E5;
+    border-radius: 4px;
+    padding: 1em;
+    color: #E8EAF2;
+}
+
+/* Réponse */
+.sidebarblock.answer {
+    background-color: #2A1020;
+    border: 1px solid #FF4D75;
+    border-radius: 4px;
+    padding: 1em;
+    color: #E8EAF2;
+}
+
+/* Note professeur */
+.sidebarblock.teacher_note {
+    background-color: #1D1330;
+    border: 1px dashed #9B6DD8;
+    border-radius: 4px;
+    padding: 1em;
+    color: #E8EAF2;
+}
+
+/* Todo */
+.sidebarblock.todo {
+    background-color: #2A2010;
+    border: 1px dashed #F0C040;
+    border-radius: 4px;
+    padding: 1em;
+    color: #E8EAF2;
+}
+
+/* --- Blocs de code (listing / source / literal) ------------ */
+/* Le conteneur porte le style visuel */
+.listingblock,
+.literalblock {
+    background-color: #161B27;
+    border: 1px solid #2A3455;
+    border-radius: 4px;
+    margin-bottom: 1.5em;
+}
+
+/* La caption (.title) au-dessus du bloc */
+.listingblock > .title,
+.literalblock > .title {
+    background-color: transparent;
+    padding: 0.4em 1em 0;
+}
+
+/* .content et pre/code sont transparents, sans bordure propre */
+.listingblock .content,
+.literalblock .content {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+/* Neutralise color:rgba(0,0,0,.9) sur pre injecté par le thème Asciidoctor */
+.listingblock pre,
+.literalblock pre,
+pre.CodeRay,
+pre.rouge,
+pre.prettyprint,
+pre.highlightjs {
+    color: #C8D0E8 !important;
+}
+
+.listingblock .content pre,
+.listingblock .content pre code,
+.literalblock .content pre,
+.literalblock .content pre code,
+pre.CodeRay,
+pre.CodeRay code,
+pre.rouge,
+pre.rouge code,
+pre.prettyprint,
+pre.prettyprint code {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    padding: 1em !important;
+    margin: 0 !important;
+    color: #C8D0E8 !important;
+    font-family: "DejaVu Sans Mono", monospace;
+    filter: none !important;
+}
+
+/* --- Blocs example (====) ---------------------------------- */
+.exampleblock {
+    background-color: #161B27;
+    border: 1px solid #2A3455;
+    border-radius: 4px;
+    margin-bottom: 1.5em;
+}
+
+.exampleblock > .title {
+    color: #4D82E5;
+    background-color: transparent;
+    padding: 0.4em 1em 0;
+}
+
+.exampleblock > .content {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 1em;
+    color: #E8EAF2;
+}
+
+/* --- Pied de page ------------------------------------------ */
+#footer {
+    border-top: none;
+    padding-top: 0.5em;
+    margin-top: 2em;
+    color: #8A90B0;
+    font-size: 0.85em;
+}
+
+/* --- Neutralisation du thème Asciidoctor par défaut -------- */
+#content,
+#header,
+#footer-text {
+    background-color: transparent;
+    color: #E8EAF2;
+}
+
+.sidebarblock {
+    background-color: #161B27;
+    border-color: #2A3455;
+    color: #E8EAF2;
+}
+
+.admonitionblock > table td.content,
+.admonitionblock > table td.icon {
+    background-color: #161B27;
+    color: #E8EAF2;
+}
+
+.admonitionblock.note > table {
+    border-color: #4D82E5;
+}
+
+.admonitionblock.tip > table {
+    border-color: #9B6DD8;
+}
+
+.admonitionblock.important > table {
+    border-color: #FF4D75;
+}
+
+.admonitionblock.warning > table,
+.admonitionblock.caution > table {
+    border-color: #E8A030;
+}
+
+/* --- Neutralisation des filtres invert de la preview IntelliJ -- */
+/* IntelliJ injecte filter:invert(90%) hue-rotate(180deg) sur     */
+/* pre, code, titres de blocs, icônes — on annule tout cela.      */
+pre,
+code,
+.listingblock > .title,
+.literalblock > .title,
+.admonitionblock td.content > .title,
+.audioblock > .title,
+.exampleblock > .title,
+.imageblock > .title,
+.stemblock > .title,
+.openblock > .title,
+.paragraph > .title,
+.quoteblock > .title,
+table.tableblock > .title,
+.verseblock > .title,
+.videoblock > .title,
+.dlist > .title,
+.olist > .title,
+.ulist > .title,
+.qlist > .title,
+.hdlist > .title,
+#toctitle,
+.sidebarblock > .content > .title,
+.quoteblock blockquote::before,
+td.icon {
+    filter: none !important;
+}

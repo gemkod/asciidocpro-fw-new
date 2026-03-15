@@ -84,6 +84,10 @@
 //region docinfo
 //active l'injection docinfo
 :adp_docinfo_enable: 1
+//dossier à utiliser dans le docinfo (permet de choisir le thème html)
+:adp_system_docinfo_vendor: asciidocpro-dark
+:adp_project_docinfo_vendor:
+:adp_document_docinfo_vendor:
 //active l'utilisation du docinfo du projet
 :adp_project_docinfo_enable: 0
 //active l'utilisation du docinfo du document
