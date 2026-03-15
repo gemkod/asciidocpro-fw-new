@@ -296,7 +296,8 @@ h2 {
 
 /* --- Code inline (codespan) -------------------------------- */
 code {
-    color: #E8003D;
+    color: #E8003D !important;
+    background-color: #FFF0F3 !important;
     padding: 0.1em 0.3em;
     border-radius: 3px;
     font-size: 0.92em;
@@ -435,24 +436,31 @@ span.keyword {
 
 /* --- Tableaux ---------------------------------------------- */
 table.tableblock {
-    border-collapse: collapse;
-    border: 1px solid #C5D0E6;
+    border-collapse: collapse !important;
+    border: 1px solid #C5D0E6 !important;
     margin-bottom: 1.5em;
+    background-color: #FFFFFF !important;
 }
 
 table.tableblock td,
 table.tableblock th {
-    border: 1px solid #C5D0E6;
+    border: 1px solid #C5D0E6 !important;
+    color: #333333 !important;
+    background-color: #FFFFFF !important;
 }
 
 table.tableblock thead th {
-    background-color: #0047BB;
-    color: #FFFFFF;
+    background-color: #0047BB !important;
+    color: #FFFFFF !important;
     padding: 0.5em;
 }
 
-table.tableblock tbody tr:nth-child(even) {
-    background-color: #EEF2FA;
+table.tableblock tbody tr:nth-child(odd) td {
+    background-color: #FFFFFF !important;
+}
+
+table.tableblock tbody tr:nth-child(even) td {
+    background-color: #EEF2FA !important;
 }
 
 table.tableblock td {
@@ -503,12 +511,110 @@ table.tableblock td {
 }
 
 /* --- Blocs de code (listing) ------------------------------- */
-.listingblock .content pre {
+.listingblock,
+.literalblock {
     background-color: #f7faff;
     border: 1px solid #C5D0E6;
     border-radius: 4px;
-    padding: 1em;
     margin-bottom: 1.5em;
+}
+
+.listingblock > .title,
+.literalblock > .title {
+    background-color: transparent;
+    padding: 0.4em 1em 0;
+}
+
+.listingblock .content,
+.literalblock .content {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+.listingblock .content pre,
+.listingblock .content pre code,
+.literalblock .content pre,
+.literalblock .content pre code,
+pre.CodeRay,
+pre.CodeRay code,
+pre.rouge,
+pre.rouge code,
+pre.prettyprint,
+pre.prettyprint code {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    padding: 1em !important;
+    margin: 0 !important;
+    color: #333333 !important;
+    font-family: "DejaVu Sans Mono", monospace;
+    filter: none !important;
+}
+
+/* --- Blocs example (====) ---------------------------------- */
+.exampleblock {
+    background-color: #f7faff;
+    border: 1px solid #C5D0E6;
+    border-radius: 4px;
+    margin-bottom: 1.5em;
+}
+
+.exampleblock > .title {
+    color: #0047BB;
+    background-color: transparent;
+    padding: 0.4em 1em 0;
+}
+
+.exampleblock > .content {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 1em;
+}
+
+/* --- Table des matières toc2 (media queries) --------------- */
+@media screen and (min-width: 768px) {
+    #toc.toc2 {
+        background: #F8F9FD !important;
+        border-right: 1px solid #C5D0E6 !important;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    #toc.toc2 {
+        background: #F8F9FD !important;
+    }
+}
+
+/* --- Neutralisation des filtres invert de PhpStorm sombre -- */
+pre,
+code,
+.listingblock > .title,
+.literalblock > .title,
+.admonitionblock td.content > .title,
+.audioblock > .title,
+.exampleblock > .title,
+.imageblock > .title,
+.stemblock > .title,
+.openblock > .title,
+.paragraph > .title,
+.quoteblock > .title,
+table.tableblock > .title,
+.verseblock > .title,
+.videoblock > .title,
+.dlist > .title,
+.olist > .title,
+.ulist > .title,
+.qlist > .title,
+.hdlist > .title,
+#toctitle,
+.sidebarblock > .content > .title,
+.quoteblock blockquote::before,
+td.icon {
+    filter: none !important;
 }
 
 /* --- Pied de page ------------------------------------------ */
