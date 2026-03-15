@@ -1,0 +1,6 @@
+#Mise en forme de la table des matières
+var:
+    toc:
+        h2:
+            style: bold
+            color: 356F9E

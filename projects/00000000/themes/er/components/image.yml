@@ -1,0 +1,8 @@
+image:
+    border_color: $var_image_border_color
+    border_width: $var_image_border_width
+    padding: $var_image_padding
+    align: center
+    #pour que la légende de l'image soit alignée comme l'image, il faut hériter de l'alignement de cette dernière https://github.com/asciidoctor/asciidoctor-pdf/issues/790
+    caption:
+        align: $var_caption_align

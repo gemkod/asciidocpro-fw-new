@@ -1,1 +1,4 @@
-:azert: niveau du projet !!!
+:adp_project_theme_enabled: 0
+:adp_theme_pdf_vendor: er
+:adp_theme_pdf_file_name: er-theme.yml
+:adp_project_docinfo_enable: 0

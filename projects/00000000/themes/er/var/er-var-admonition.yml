@@ -1,0 +1,35 @@
+#définition des variables sous la clé "var" (choix arbitraire)
+var:
+    admonition:
+        padding: 8
+        note:
+            icone:
+                name: fas-sticky-note
+                color: 19407C
+            bgcolor: f3f7fd
+            color: 19407C
+            padding: 8
+        important:
+            icone:
+                name: fas-star
+                color: bf00a4
+            bgcolor: fff7fe
+            color: bf00a4
+        tip:
+            icone:
+                name: fas-lightbulb
+                color: 008975
+            bgcolor: f4fffd
+            color: 008975
+        caution:
+            icone:
+                name: fas-bolt
+                color: bf4c00
+            bgcolor: fff7f2
+            color: bf4c00
+        warning:
+            icone:
+                name: fas-bomb
+                color: BF0000
+            bgcolor: FFF7F7
+            color: BF0000

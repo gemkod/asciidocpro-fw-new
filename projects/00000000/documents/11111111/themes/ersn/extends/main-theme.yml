@@ -1,0 +1,4 @@
+#thème personnalisé que j'utilise par défaut
+extends: default
+#base:
+#    font-color: 3333

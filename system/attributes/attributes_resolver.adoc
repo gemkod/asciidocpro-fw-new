@@ -114,3 +114,15 @@ ifeval::[{adp_toc_pdf_enable} == 0]
 endif::[]
 endif::backend-pdf[]
 //endregion table des matières
+//region theme
+:pdf-themesdir: {adp_system_themes_folder}{adp_theme_pdf_vendor}/
+ifeval::[{adp_project_theme_enabled} == 1]
+:pdf-themesdir: {adp_project_themes_folder}{adp_theme_pdf_vendor}/
+//end eval adp_project_theme_enabled
+endif::[]
+ifeval::[{adp_document_theme_enabled} == 1]
+:pdf-themesdir: {adp_document_themes_folder}{adp_theme_pdf_vendor}/
+//end eval adp_document_theme_enabled
+endif::[]
+:pdf-theme: {adp_theme_pdf_file_name}
+//endregion theme

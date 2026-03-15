@@ -1,0 +1,7 @@
+#Ce fichier contient les éléments qui ne sont pas repris dans les autres composants
+codespan:
+    font_color: $var_codespan_color
+    background_color: $var_codespan_bgcolor
+link:
+  font_color: 428BCA
+  text-decoration : none

@@ -1,0 +1,4 @@
+heading:
+    font_color: $var_heading_color
+    #    désactiver le placement d'un chapitre sur une nouvelle page (utiliser "always" pour activer, auto pour qu'il n'y ait pas de nouvelle page)
+    chapter-break-before: $var_heading_chapter_break_before

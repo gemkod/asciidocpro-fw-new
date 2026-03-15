@@ -34,7 +34,7 @@
 :adp_system_docinfo_folder: {adp_system_folder}{adp_docinfo_folder_name}/
 :adp_system_templates_folder: {adp_system_folder}{adp_templates_folder_name}/
 :adp_system_themes_folder: {adp_system_folder}{adp_themes_folder_name}/
-:adp_system_theme_asciidocpro_folder: {adp_system_themes_folder}asciidocpro/
+// :adp_system_theme_asciidocpro_folder: {adp_system_themes_folder}
 //endregion Chemins vers les dossiers système
 //region Chemins vers les fichiers d'attribut système
 :adp_system_attributes_system_file: {adp_system_attributes_folder}attributes_system.adoc
@@ -51,10 +51,10 @@
 :adp_system_template_todo_file: {adp_system_templates_folder}{adp_template_label_todo_file_name}
 //endregion Chemins vers les fichiers de templates système
 //region Chemin vers les images du thème asciidocpro
-:adp_image_cover_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/cover_asciidocpro.png
-:adp_image_logo_image_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_ap_181x163.png
-:adp_image_logo_icon_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_text_ap_horizontal_25px.png
-:adp_image_filigrane_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_ap_filigrane.png
+// :adp_image_cover_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/cover_asciidocpro.png
+// :adp_image_logo_image_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_ap_181x163.png
+// :adp_image_logo_icon_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_text_ap_horizontal_25px.png
+// :adp_image_filigrane_asciidocpro_file: {adp_system_theme_asciidocpro_folder}{adp_images_folder_name}/logo_ap_filigrane.png
 //endregion Chemin vers les images du thème asciidocpro
 //
 //endregion partie système

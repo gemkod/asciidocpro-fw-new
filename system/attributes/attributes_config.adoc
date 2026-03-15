@@ -105,8 +105,11 @@
 :adp_use_current_config: 1
 //endregion niveau des attributs de configuration à charger
 //region theme
-:pdf-themesdir: {adp_system_theme_asciidocpro_folder}
-:pdf-theme: {adp_theme_asciidocpro_file_name}
+//dossier qui contient tous les éléments du thème
+:adp_theme_pdf_vendor: asciidocpro
+:adp_theme_pdf_file_name: adp-theme.yml
+:adp_project_theme_enabled: 0
+:adp_document_theme_enabled: 0
 //endregion theme
 //region question
 :adp_render_question_start: 0

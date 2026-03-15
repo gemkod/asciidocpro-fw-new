@@ -1,0 +1,20 @@
+# fichier des variables pour le composant header-footer.yml
+var:
+    header:
+        height: 0.45in
+        lineheight: 1.2
+        verticalalign: bottom
+        content:
+            left: 'image:images/logo_30px.png[] {document-title}'
+            right: '{_persist_uid_support}{_current_version}'
+        border:
+            width: 0
+    footer:
+        height: 0.55in
+        lineheight: 1
+        verticalalign: top
+        border:
+            width: 0
+        content:
+            left: '(C) {_document_author} | '
+            right: '{chapter-title} | {page-number} / {page-count}'

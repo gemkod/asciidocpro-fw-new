@@ -1,0 +1,9 @@
+table:
+    cell:
+        padding: $var_table_cell_padding
+        text-align: inherit
+    head:
+        background-color: $var_table_head_bgcolor
+        #il n'est pas possible de spécifier l'alignement dans les cellules d'entête https://github.com/asciidoctor/asciidoctor-pdf/issues/1094
+    body:
+        stripe_background_color: $var_table_body_stripe_bgcolor

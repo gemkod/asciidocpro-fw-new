@@ -1,0 +1,23 @@
+header:
+    #    décalage du texte par rapport au bord haut de la page
+    height: $var_header_height
+    line-height: $var_header_lineheight
+    vertical_align: $var_header_verticalalign
+    border-width: $var_header_border_width
+    recto: &shared_header_recto
+        left:
+            content: $var_header_content_left
+        right:
+            content: $var_header_content_right
+    verso: *shared_header_recto
+footer:
+    height: $var_footer_height
+    line-height: $var_footer_lineheight
+    vertical_align: $var_footer_verticalalign
+    border-width: $var_footer_border_width
+    recto: &shared_footer_recto
+        left:
+            content: $var_footer_content_left
+        right:
+            content: $var_footer_content_right
+    verso: *shared_footer_recto

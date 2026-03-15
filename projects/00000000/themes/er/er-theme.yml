@@ -1,0 +1,24 @@
+extends:
+    - extends/main-theme.yml
+    - var/er-var-base.yml
+    - components/base.yml
+    - var/er-var-admonition.yml
+    - components/admonitions.yml
+    - var/er-var-role.yml
+    - components/roles.yml
+    - var/er-var-toc.yml
+    - components/toc.yml
+    - var/er-var-heading.yml
+    - components/heading.yml
+    - var/er-var-image.yml
+    - components/image.yml
+    - var/er-var-table.yml
+    - components/table.yml
+    - var/er-var-miscellaneous.yml
+    - components/miscellaneous.yml
+    - var/er-var-header-footer.yml
+    - components/header-footer.yml
+    - var/er-var-title-page.yml
+    - components/title-page.yml
+    - var/er-var-page.yml
+    - components/page.yml

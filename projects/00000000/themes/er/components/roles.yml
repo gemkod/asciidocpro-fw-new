@@ -1,0 +1,155 @@
+role:
+    <cell>:
+        celltitre:
+          background-color: $var_role_cell_celltitre_bgcolor
+        cellimportant:
+          background-color: $var_role_cell_cellimportant_bgcolor
+        cellwarning:
+          background-color: $var_role_cell_cellwarning_bgcolor
+    <sidebar>:
+        question:
+            #            font-color: #1B0C93
+            border-color: $var_role_sidebar_question_border_color
+            background-color: $var_role_sidebar_question_bgcolor
+            border-width: $var_role_sidebar_question_border_width
+        answer:
+            border-color: $var_role_sidebar_answer_border_color
+            background-color: $var_role_sidebar_answer_bgcolor
+            border-style: $var_role_sidebar_answer_border_style
+            border-width: $var_role_sidebar_answer_border_width
+        todo:
+            background-color: $var_role_sidebar_todo_bgcolor
+            border-color: $var_role_sidebar_todo_border_color
+            border-style: $var_role_sidebar_todo_border_style
+            border-width: $var_role_sidebar_todo_border_width
+        teacher_note:
+            background-color: $var_role_sidebar_teachernote_bgcolor
+            border-color: $var_role_sidebar_teachernote_border_color
+            border-style: $var_role_sidebar_teachernote_border_style
+            border-width: $var_role_sidebar_teachernote_border_width
+        noteprof:
+            background-color: $var_role_sidebar_noteprof_bgcolor
+            border-color: $var_role_sidebar_noteprof_border_color
+            border-style: $var_role_sidebar_noteprof_border_style
+            border-width: $var_role_sidebar_noteprof_border_width
+        skill:
+            background-color: $var_role_sidebar_skill_bgcolor
+            border-color: $var_role_sidebar_skill_border_color
+            border-style: $var_role_sidebar_skill_border_style
+            border-width: $var_role_sidebar_skill_border_width
+        resourcesstudent:
+            background-color: $var_role_sidebar_resourcesstudent_bgcolor
+            border-color: $var_role_sidebar_resourcesstudent_border_color
+            border-style: $var_role_sidebar_resourcesstudent_border_style
+            border-width: $var_role_sidebar_resourcesstudent_border_width
+        resourcesteacher:
+            background-color: $var_role_sidebar_resourcesteacher_bgcolor
+            border-color: $var_role_sidebar_resourcesteacher_border_color
+            border-style: $var_role_sidebar_resourcesteacher_border_style
+            border-width: $var_role_sidebar_resourcesteacher_border_width
+        definition:
+            background-color: $var_role_sidebar_definition_bgcolor
+            border-color: $var_role_sidebar_definition_border_color
+            border-style: $var_role_sidebar_definition_border_style
+            border-width: $var_role_sidebar_definition_border_width
+##            padding: [$vertical_rhythm, $vertical_rhythm * 1.25, $vertical_rhythm, $vertical_rhythm * 1.25]
+#            padding: 0
+#            margin-bottom: -$vertical_rhythm * 0.5
+#            title:
+#                text_align: left
+#                font_color: $var_role_filename_color
+#                font_size: $heading_h4_font_size
+#                font_style: $heading_font_style
+#
+#
+#
+#
+#
+#    rôles applicables à des tableaux grâce à l'extension TableRoleNew.rb
+    <table>:
+        condensed:
+            cell-padding: $var_role_table_condensed_cell_padding
+        dark:
+            background-color: $var_role_table_dark_background_color
+            font-color: $var_role_table_dark_font_color
+            border-color: $var_role_table_dark_border_color
+            head-background-color: $var_role_table_dark_head_background_color
+            head-font-color: $var_role_table_dark_head_font_color
+            cell-padding: $var_role_table_dark_cell_padding
+#        heavy:
+#            border-width: 1.5
+#            grid-width: 1.5
+#            font-size: 20.5
+#            border-color: #00FF00
+#    rôle "en block"
+#    buid:
+#        font-color: red
+#    rôle "en ligne"
+    warning:
+        font-color: $var_role_warning_color
+        background_color: $var_role_warning_bgcolor
+    notable:
+        background_color: $var_role_notable_bgcolor
+    filename:
+        font-color: $var_role_filename_color
+        background-color: $var_role_filename_bgcolor
+    foldername:
+        font-color: $var_role_foldername_color
+        background-color: $var_role_foldername_bgcolor
+    chapter:
+        font-color: $var_role_chapter_color
+    linkdef:
+        text-decoration : underline
+        text-decoration-color : $var_role_keyword_color
+        font_color: $var_base_color
+    todo:
+        font-color: $var_role_todo_color
+        background_color: $var_role_todo_bgcolor
+    keyword:
+        font-color: $var_role_keyword_color
+        font-style: $var_role_keyword_style
+    role-definition:
+        font-color: $var_role_definition_color
+        font-style: $var_role_definition_style
+    green:
+        font-color: $var_role_green_color
+    red:
+        font-color: $var_role_red_color
+    blue:
+        font-color: $var_role_blue_color
+    steelblue:
+        font-color: $var_role_steelblue_color
+    orange:
+        font-color: $var_role_orange_color
+    star:
+        font-color: $var_role_star_color
+    army:
+        font-color: $var_role_army_color
+    lightpurple:
+        font-color: $var_role_lightpurple_color
+    purple:
+        font-color: $var_role_purple_color
+    numsupport:
+        font-color: $var_role_numsupport_color
+    uid:
+        font-color: $var_role_uid_color
+        font-size: $var_role_uid_font_size
+        font-style: $var_role_uid_font_style
+        background-color: $var_role_uid_bgcolor
+#        border-offset: $var_role_uid_border_offset
+#        border-width: $var_role_uid_border_width
+        border-radius: $var_role_uid_border_radius
+    uidrs:
+#        font-color: $var_role_uidrs_color
+#        font-size: $var_role_uidrs_font_size
+#        font-style: $var_role_uidrs_font_style
+        background-color: $var_role_uidrs_bgcolor
+#        border: $var_role_uidrs_border
+#        border-offset: $var_role_uid_border_offset
+#        border-width: $var_role_uid_border_width
+#        border-radius: $var_role_uidrs_border_radius
+        font_family: $codespan_font_family
+    adpm-version-number:
+        font-style: $var_role_adpm_version_number_style
+    adpm-version-date:
+        font-style: $var_role_adpm_version_date_style

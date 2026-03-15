@@ -1,0 +1,142 @@
+var:
+    role:
+        cell:
+            celltitre:
+#                bgcolor: e4e0fd
+                bgcolor: f6ecff
+            cellimportant:
+                bgcolor: '#f4e100'
+            cellwarning:
+                bgcolor: '#ffdebf'
+#        rôles pour les sidebars
+        sidebar:
+            question:
+                bgcolor: F8FBFF
+                border:
+                    color: 5998D3
+                    width: 1
+            answer:
+                bgcolor: FEF9FF
+                border:
+                    color: d63af1
+                    style: dashed
+                    width: 1
+            teachernote: &teacher_note
+                bgcolor: d4f1dc
+                border:
+                    color: d63af1
+                    style: dashed
+                    width: 0
+            noteprof:
+                <<: *teacher_note # << permet d'étendre le mapping &teacher_note en redéfinissant que certaines propriétés (à utiliser pour gérer les différents styles en fonction de l'utilisateur)
+#                bgcolor: ff0000
+            todo:
+                bgcolor: f6f7cf
+                border:
+                    color: cc792a
+                    style: solid
+                    width: 0
+            skill:
+                bgcolor: ffffff
+                border:
+                    color: 999999
+                    style: solid
+                    width: 1
+            resourcesstudent:
+                bgcolor: fffbe6
+                border:
+                    color: 007BFF
+                    style: solid
+                    width: 1
+            resourcesteacher:
+                bgcolor: d4f1dc
+                border:
+                    color: 007BFF
+                    style: solid
+                    width: 1
+            definition:
+                bgcolor: FAF9F5
+                border:
+                    color: e1dac2
+                    style: solid
+                    width: 1
+        table:
+            dark:
+                background-color: '#2C3E50'
+                font-color: '#FFFFFF'
+                border-color: '#1A252F'
+                head-background-color: '#1A252F'
+                head-font-color: '#ECF0F1'
+                cell-padding: [3, 6, 3, 6]
+            condensed:
+                cell-padding: [ 2, 4, 2, 4 ]
+        todo:
+            bgcolor: FFA500
+            color: FFFFCC
+        warning:
+            bgcolor: ffdebf
+            color: c40003
+        notable:
+#            bgcolor: FFF9E6
+            bgcolor: fff29d
+        filename:
+            bgcolor: ffffff
+            color: dd5494
+        foldername:
+            bgcolor: ffffff
+            color: 227e3a
+        chapter:
+            color: 428BCA
+#        linkdef:
+#            text_decoration: underline
+#            text_decoration: 428BCA
+        keyword:
+            color: E25800
+            style: bold
+        definition:
+            color: E25800
+            style: bold
+        green:
+            color: 08a608
+        blue:
+            color: 1b26bd
+        steelblue:
+            color: 428BCA
+        orange:
+            color: ff9e00
+        star:
+            color: f4e100
+        red:
+            color: bd0000
+        lightpurple:
+            color: cf81e3
+        purple:
+            color: 9c01e3
+        army:
+            color: 556B2F
+        numsupport:
+            color: 5806a2
+        uid:
+            font_size: round($base_font_size * 0.7)
+            color: 556B2F
+            bgcolor: F5F5DC
+            font_style: normal
+#            border_offset: 1 #décalage des bordures par rapport au texte
+#            border_width: [0, 3, 0, 3] # "casse le document"
+            border_radius: $base_border_radius
+#            padding: [2, 4, 2, 4] #ne fonctionne pas sur un élément en ligne et display inline block ne foncitonne pas
+        uidrs:
+            font_size: round($base_font_size * 0.8)
+            color: 0e3865
+            bgcolor: ffffff
+#            border: solid 1px 0e3865
+#            font_style: normal
+            border_radius: $base_border_radius
+        adpm:
+            version:
+                number:
+                    style: bold
+                date:
+                    style: normal
+
+

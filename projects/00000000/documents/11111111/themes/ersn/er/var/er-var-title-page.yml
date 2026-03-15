@@ -1,0 +1,22 @@
+#variables pour le composant page-title.yml
+var:
+    titlepage:
+        background_image: image:images/cover_btssio.png[]
+        bgcolor: ffffff
+        color: 747474
+        text:
+            align: center
+        logo:
+            top: 0
+            align: left
+        title:
+            top: 120
+            color: 555E64
+            size: $heading_h1_font_size * 1.5
+        authors:
+            color: 4f545b
+        subtitle:
+            color: inherit
+        revision:
+            color: 888d94
+#            color: ffffff

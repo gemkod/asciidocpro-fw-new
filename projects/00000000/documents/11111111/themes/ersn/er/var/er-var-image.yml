@@ -1,0 +1,9 @@
+#Variables utiles au composant image.yml
+var:
+    image:
+        border:
+            color: cccccc
+            width: 2
+        padding: 4
+    caption:
+        align: inherit

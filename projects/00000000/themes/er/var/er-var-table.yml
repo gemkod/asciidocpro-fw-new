@@ -1,0 +1,12 @@
+#Variables utiles au composant table.yml
+var:
+    table:
+        cell:
+            padding: 8
+        head:
+            bgcolor: d5cffc
+        body:
+            stripe:
+#                bgcolor: e4e0fd
+#                bgcolor: f3f1fe
+                bgcolor: faf9ff

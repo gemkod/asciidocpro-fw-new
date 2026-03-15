@@ -1,0 +1,5 @@
+#Variables utiles au composant heading.yml
+var:
+    heading:
+        color: B23885
+        chapter_break_before: always

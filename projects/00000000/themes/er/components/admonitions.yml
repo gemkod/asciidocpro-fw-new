@@ -1,0 +1,37 @@
+admonition:
+    icon:
+        note:
+            name: $var_admonition_note_icone_name
+            stroke-color: $var_admonition_note_icone_color
+        important:
+            name: $var_admonition_important_icone_name
+            stroke-color: $var_admonition_important_icone_color
+        tip:
+            name: $var_admonition_tip_icone_name
+            stroke-color: $var_admonition_tip_icone_color
+        caution:
+            name: $var_admonition_caution_icone_name
+            stroke-color: $var_admonition_caution_icone_color
+        warning:
+            name: $var_admonition_warning_icone_name
+            stroke-color: $var_admonition_warning_icone_color
+    important:
+        background-color: $var_admonition_important_bgcolor
+        font-color: $var_admonition_important_color
+        padding: $var_admonition_padding
+    note :
+        background-color: $var_admonition_note_bgcolor
+        font-color: $var_admonition_note_color
+        padding: $var_admonition_padding
+    warning:
+        background-color: $var_admonition_warning_bgcolor
+        font-color: $var_admonition_warning_color
+        padding: $var_admonition_padding
+    tip:
+        background-color: $var_admonition_tip_bgcolor
+        font-color: $var_admonition_tip_color
+        padding: $var_admonition_padding
+    caution:
+        background-color: $var_admonition_caution_bgcolor
+        font-color: $var_admonition_caution_color
+        padding: $var_admonition_padding

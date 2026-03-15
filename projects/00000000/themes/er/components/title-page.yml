@@ -1,0 +1,20 @@
+#Personnalisation de la page de garde
+title-page: #https://docs.asciidoctor.org/pdf-converter/latest/theme/title-page/
+    background-image: $var_titlepage_background_image
+    background-color: $var_titlepage_bgcolor
+    font-color: $var_titlepage_color
+    text_align: $var_titlepage_text_align
+    logo:
+        top: $var_titlepage_logo_top
+        align: $var_titlepage_logo_align
+        image: $var_titlepage_logo_image
+    title:
+        top: $var_titlepage_title_top
+        font-color: $var_titlepage_title_color
+        font-size: $var_titlepage_title_size
+    authors:
+        font-color: $var_titlepage_authors_color
+    subtitle:
+        font-color: $var_titlepage_subtitle_color
+    revision:
+        font-color: $var_titlepage_revision_color
