@@ -9,7 +9,7 @@ link:
     font-color: '#0047BB'
     text-decoration: underline
 title_page:
-    background_image: image:{adp_image_cover_asciidocpro_file}/[]
+    background_image: image:images/cover_asciidocpro.png[]
 #    background_position: top
     background_position: 0 0
     background_repeat: no-repeat
@@ -18,7 +18,7 @@ title_page:
     font-color: '#4A4E69'
     text_align: center
     logo:
-        image: image:{adp_image_logo_image_asciidocpro_file}[]
+        image: image:images/logo_ap_181x163.png[]
         top: 0
         align: left
         width: 50
@@ -56,7 +56,7 @@ footer:
         left:
             content: '{author} | {chapter-title} '
         right:
-            content: 'image:{adp_image_logo_icon_asciidocpro_file}[] {page-number} / {page-count}'
+            content: 'image:images/logo_text_ap_horizontal_25px.png[] {page-number} / {page-count}'
     verso: *shared_footer_recto
 caption:
     font-color: '#0047BB'
