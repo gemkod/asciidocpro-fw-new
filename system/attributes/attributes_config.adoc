@@ -1,4 +1,3 @@
-:azert: niveau du système !!!
 //region afficher_masquer
 //
 :adp_render_show_correction: 1
@@ -67,7 +66,10 @@
 // Niveau maximum de numérotation des sections (défaut : 3)
 :sectnumlevels: 5
 // Préfixe devant les numéros de section — uniquement disponible en doctype book via
-:chapter-signifier: Partie
+:chapter-signifier: Chapitre
+// Numéro des parties (niveau de titre 0 en dehors du titre principal)
+:!partnums:
+:!part-signifier: Partie
 //endregion table des matières
 //
 //region version
@@ -118,3 +120,25 @@
 //region question
 :adp_render_question_start: 0
 //endregion question
+//region Mise en page du pdf
+:pdf-page-size: A4
+//mode "portrait" ou "landscape"
+:pdf-page-layout: portrait
+//doctype pour conditionner le rendu
+:doctype: book
+//activer / désactive la page de titre pour le doctype "article"
+:!title-page:
+:!title-page-background-image: image:chemin/absolu/vers/img.png[fit=none]
+//insère une image de couverture avant le début du document (donc avant la page de garde le cas échéant)
+:front-cover-image: image:C:/Users/emman/AppData/Local/AsciidocPro/framework/projects/00000000/themes/er/images/cover_btssio.png[fit=nonte]
+//image au-dessus du contenu
+// :notitle:
+:!page-foreground-image: image:chemin/absolu/vers/img.png[fit=none]
+//image de fond sur toutes les pages (y compris la page de garde)
+:!page-background-image: image:chemin/absolu/vers/img.png[fit=none]
+:!page-background-image-recto: image:chemin/absolu/vers/img.png[fit=none]
+:!page-background-image-verso: image:chemin/absolu/vers/img.png[fit=none]
+//endregion Mise en page du pdf
+//region Index
+:adp_index_enabled: 1
+//endregion Index

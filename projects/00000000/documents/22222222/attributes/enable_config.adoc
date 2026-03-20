@@ -1,0 +1,2 @@
+:adp_configuration_enabled: 0
+:adp_support_type: book

@@ -5,12 +5,26 @@ base:
 heading:
     font-color: '#0047BB'
     h2-font-color: '#E8003D'
+    #    h1_font_color: '#1bbb1d'
+    #    h1_font_size: 35
+#    mise en forme du titre de partie
+    h1:
+        font-color: '#5B2D8E'
+        font-size: 48
+        text-align: center
+        margin_page_top: 280
+#        font-style: normal
+#        text-align: left
+#        margin-top: 220
+#        border-color: '#0047BB'
+#        border-left-width: 4
+#        padding-left: 12
 link:
     font-color: '#0047BB'
     text-decoration: underline
 title_page:
     background_image: image:images/cover_asciidocpro.png[]
-#    background_position: top
+    #    background_position: top
     background_position: 0 0
     background_repeat: no-repeat
     background_size: cover
@@ -25,7 +39,7 @@ title_page:
     title:
         top: 120
         font-color: '#0047BB'
-        font-size: $heading_h1_font_size * 1.5
+        font-size: 50
     authors:
         font-color: '#E8003D'
     subtitle:
@@ -35,14 +49,14 @@ title_page:
 header:
     border_color: E8003D
     border_width: 1
-#  font-color: '#9ba0a7'
+    #  font-color: '#9ba0a7'
     height: 0.45in
     line-height: 1.2
     vertical_align: bottom
     recto: &shared_header_recto
         left:
             content: '{document-title}'
-#            content: "image:C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/logo_ap_181x163.png[] {document-title}"
+        #            content: "image:C:/Users/emman/AppData/Local/AsciidocPro/projects/framework/fw/system/images/logo_ap_181x163.png[] {document-title}"
         right:
             content: '{revnumber}'
     verso: *shared_header_recto
@@ -62,11 +76,12 @@ caption:
     font-color: '#0047BB'
     font-size: 9
 toc:
+    h1-font-color: '#5B2D8E'
     h2-font-color: '#E8003D'
     h3-font-color: '#0047BB'
 table:
     cell:
-#    padding: $var_table_cell_padding
+        #    padding: $var_table_cell_padding
         text-align: inherit
     head:
         background-color: '#0047BB'

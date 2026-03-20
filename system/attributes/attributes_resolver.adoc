@@ -22,22 +22,22 @@ endif::[]
 //
 //region version
 ifeval::[{adp_render_show_version_info} == 0]
-:revnumber!:
-:revdate!:
-:revremark!:
+:!revnumber:
+:!revdate:
+:!revremark:
 //end eval adp_render_show_version_info
 endif::[]
 ifeval::[{adp_render_show_version_info} == 1]
 ifeval::["{revnumber}" == ""]
-:revnumber!:
+:!revnumber:
 //end eval revnumber
 endif::[]
 ifeval::["{revdate}" == ""]
-:revdate!:
+:!revdate:
 //end eval revdate
 endif::[]
 ifeval::["{revremark}" == ""]
-:revremark!:
+:!revremark:
 //end eval revremark
 endif::[]
 //end eval adp_render_show_version_info
@@ -95,11 +95,11 @@ endif::[]
 ifdef::backend-html5[]
 :toc: {adp_toc_placement_html}
 ifeval::[{adp_toc_html_enable} == 0]
-:toc!:
+:!toc:
 //end eval adp_toc_html_enable
 endif::[]
 ifdef::env-preview[]
-:toc!:
+:!toc:
 ifeval::[{adp_toc_html_preview_enable} == 1]
 :toc: {adp_toc_placement_html_preview}
 //end eval adp_toc_html_preview_enable
@@ -109,7 +109,7 @@ endif::backend-html5[]
 ifdef::backend-pdf[]
 :toc: {adp_toc_placement_pdf}
 ifeval::[{adp_toc_pdf_enable} == 0]
-:toc!:
+:!toc:
 //end eval adp_toc_pdf_enable
 endif::[]
 endif::backend-pdf[]
@@ -126,3 +126,6 @@ ifeval::[{adp_document_theme_enabled} == 1]
 endif::[]
 :pdf-theme: {adp_theme_pdf_file_name}
 //endregion theme
+//region doctype
+//todo gérer la valeur de l'attribut adp_support_type dans le fichier enable_config qui doit être renommé comme fichier d'attributs à charger indépendamment des autres .
+//endregion doctype

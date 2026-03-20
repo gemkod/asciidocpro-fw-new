@@ -34,4 +34,4 @@ include::{adp_system_attributes_alias_file}[]
 //
 //
 //en dur pour l'instant
-:doctype: book
+// :doctype: book
