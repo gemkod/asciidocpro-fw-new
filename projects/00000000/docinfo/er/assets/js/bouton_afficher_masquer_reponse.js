@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (document.querySelector('link[href^="http://localhost:"]')) return;
 
-    const toggleEnabled = '{adp_html_toggle_answer}' === '1';
+    const toggleEnabled = '{__html_toggle_answer}' === '1';
     if (!toggleEnabled) return;
 
     const answers = Array.from(document.querySelectorAll('.sidebarblock.answer'));

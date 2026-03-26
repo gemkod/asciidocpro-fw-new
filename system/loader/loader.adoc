@@ -3,31 +3,31 @@ include::../../projects/framework_location.adoc[]
 //chargement des chemins
 include::../attributes/attributes_filesystem.adoc[]
 //chargement des attributs d'énumération
-include::{adp_system_attributes_enum_file}[]
+include::{__system_attributes_enum_file}[]
 //chargement des attributs de configuration du système
-include::{adp_system_attributes_config_file}[]
+include::{__system_attributes_config_file}[]
 //region chargement des attributs de configuration
 // // -- chargement des attributs au niveau system
-include::{adp_system_attributes_config_file}[]
+include::{__system_attributes_config_file}[]
 // -- chargement des attributs au niveau projet
-:adp_configuration_enabled: 0
-include::{adp_project_attributes_enable_config_file}[]
-ifeval::[{adp_configuration_enabled} == 1]
-include::{adp_project_attributes_config_file}[]
+:__configuration_enabled: 0
+include::{__project_attributes_enable_config_file}[]
+ifeval::[{__configuration_enabled} == 1]
+include::{__project_attributes_config_file}[]
 //end eval adp_configuration_enabled
 endif::[]
 // -- chargement des attributs au niveau document
-:adp_configuration_enabled: 0
-include::{adp_document_attributes_enable_config_file}[]
-ifeval::[{adp_configuration_enabled} == 1]
-include::{adp_document_attributes_config_file}[]
+:__configuration_enabled: 0
+include::{__document_attributes_enable_config_file}[]
+ifeval::[{__configuration_enabled} == 1]
+include::{__document_attributes_config_file}[]
 //end eval adp_configuration_enabled
 endif::[]
 //endregion chargement des attributs de configuration
 //chargement des resolver
-include::{adp_system_attributes_resolver_file}[]
+include::{__system_attributes_resolver_file}[]
 //chargement des alias (toujours en dernier)
-include::{adp_system_attributes_alias_file}[]
+include::{__system_attributes_alias_file}[]
 //
 //
 //

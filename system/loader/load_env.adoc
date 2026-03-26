@@ -1,12 +1,12 @@
 // adp_env: dev  -> charge le loader (resolution dynamique des attributs)
 // adp_env: prod -> charge le dump pre-genere (attributs figes)
 // Par defaut : dev (si adp_env n'est pas defini en ligne de commande)
-ifndef::adp_env[]
-:adp_env: dev
+ifndef::__env[]
+:__env: dev
 endif::[]
-ifeval::["{adp_env}" == "dev"]
+ifeval::["{__env}" == "dev"]
 include::loader.adoc[]
 endif::[]
-ifeval::["{adp_env}" == "prod"]
+ifeval::["{__env}" == "prod"]
 // include::_dump/attributes-dump.adoc[]
 endif::[]

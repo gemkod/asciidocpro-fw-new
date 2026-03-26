@@ -1,4 +1,4 @@
-ifeval::[{adp_show_correction} == 0]
-[.small]#_La réponse à la question *{adp_question_number}* est disponible dans la correction._#
+ifeval::[{__show_correction} == 0]
+[.small]#_La réponse à la question *{__question_number}* est disponible dans la correction._#
 //end eval adp_show_correction
 endif::[]

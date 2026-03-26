@@ -1,0 +1,285 @@
+= Versioning des documents
+:toc: left
+:toclevels: 3
+:icons: font
+
+== Principe général
+
+Chaque document géré par AsciidocPro dispose de son propre dépôt Git. Ce dépôt est **invisible pour l'utilisateur** : il est stocké côté framework, dans le dossier du document concerné. L'utilisateur travaille dans son dossier de travail habituel sans jamais voir de dossier `.git`.
+
+C'est l'application qui orchestre toutes les opérations Git (commit, tag, historique, etc.) en s'appuyant sur le mécanisme Git de séparation entre le dépôt et l'arbre de travail.
+
+[source]
+----
+   Côté utilisateur                        Côté framework
+   (dossier de travail)                    (dépôt Git)
+
+   C:/Users/.../mon-cours/                 .../projects/{pid}/documents/{did}/
+   ├── chapitre-01.adoc                    ├── attributes/
+   ├── chapitre-02.adoc                    ├── docinfo/
+   ├── images/                             ├── templates/
+   │   └── schema.png                      ├── themes/
+   └── ...                                 └── repo.git/        ◄── dépôt bare
+                                                ├── HEAD
+        L'utilisateur ne voit                   ├── objects/
+        aucun dossier .git ici                  ├── refs/
+                                                └── ...
+----
+
+== Fonctionnement technique
+
+=== Séparation dépôt / arbre de travail
+
+Git permet de dissocier l'emplacement du dépôt (les métadonnées, l'historique) de l'arbre de travail (les fichiers de l'utilisateur) grâce à deux options :
+
+- `--git-dir` : chemin vers le dépôt Git (le `.git`)
+- `--work-tree` : chemin vers le dossier de travail de l'utilisateur
+
+Toute commande Git exécutée par l'application suit ce schéma :
+
+[source,bash]
+----
+git --git-dir=/chemin/framework/projects/{pid}/documents/{did}/repo.git \
+    --work-tree=/chemin/utilisateur/dossier-document \
+    <commande>
+----
+
+L'utilisateur n'a jamais besoin de connaître ces chemins ni d'exécuter Git lui-même.
+
+=== Initialisation du dépôt
+
+Lorsqu'un document est créé dans l'application, un dépôt bare est initialisé dans le dossier du document côté framework :
+
+[source,bash]
+----
+git init --bare /chemin/framework/projects/{pid}/documents/{did}/repo.git
+----
+
+Un dépôt bare ne contient pas de copie de travail — il stocke uniquement les objets Git (historique, branches, tags). C'est le format adapté à ce cas d'usage puisque la copie de travail est le dossier de l'utilisateur, situé ailleurs.
+
+=== Structure du dossier document après initialisation
+
+[source]
+----
+projects/{project_id}/documents/{document_id}/
+├── attributes/
+│   ├── enable_config.adoc
+│   ├── attributes_config.adoc
+│   └── attributes_content.adoc
+├── docinfo/
+├── templates/
+├── themes/
+└── repo.git/                    ◄── dépôt bare (ajouté à la création)
+    ├── HEAD
+    ├── config
+    ├── description
+    ├── hooks/
+    ├── info/
+    ├── objects/
+    └── refs/
+----
+
+== Opérations Git gérées par l'application
+
+L'application expose à l'utilisateur des actions de versioning (via l'interface graphique) et les traduit en commandes Git.
+
+=== Voir l'état des modifications
+
+L'utilisateur demande à voir les fichiers modifiés depuis le dernier commit.
+
+[source,bash]
+----
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur status
+----
+
+=== Créer un commit (enregistrer une version)
+
+L'utilisateur enregistre l'état actuel de son travail avec un message descriptif.
+
+[source,bash]
+----
+# Ajouter tous les fichiers modifiés
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur add -A
+
+# Créer le commit
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur commit -m "message de l'utilisateur"
+----
+
+=== Consulter l'historique
+
+L'utilisateur parcourt l'historique des versions de son document.
+
+[source,bash]
+----
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur log --oneline
+----
+
+=== Poser un tag (marquer une version)
+
+L'utilisateur marque une version importante (ex : "version rendue aux étudiants").
+
+[source,bash]
+----
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur tag -a v1.0 -m "Version distribuée le 15/03/2026"
+----
+
+=== Voir les différences
+
+L'utilisateur compare son travail actuel avec une version précédente.
+
+[source,bash]
+----
+# Différences avec le dernier commit
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur diff
+
+# Différences entre deux versions
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur diff v1.0..v2.0
+----
+
+=== Restaurer une version précédente
+
+L'utilisateur souhaite revenir à un état antérieur de son document.
+
+[source,bash]
+----
+# Restaurer un fichier spécifique depuis un commit
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur checkout <commit> -- chemin/vers/fichier.adoc
+
+# Restaurer l'intégralité du document à une version donnée
+git --git-dir=.../repo.git --work-tree=.../dossier-utilisateur checkout <commit> -- .
+----
+
+== Ce que voit l'utilisateur vs. ce qui se passe
+
+Le tableau suivant illustre la correspondance entre les actions utilisateur dans l'application et les opérations Git sous-jacentes :
+
+[cols="2,3,1"]
+|===
+| Action dans l'application | Commande Git générée | Visible par l'utilisateur ?
+
+| Créer un document
+| `git init --bare .../repo.git`
+| Non
+
+| Enregistrer une version
+| `git add -A` + `git commit -m "..."`
+| L'utilisateur voit un formulaire de message
+
+| Consulter l'historique
+| `git log`
+| L'utilisateur voit une liste de versions
+
+| Comparer avec une version
+| `git diff`
+| L'utilisateur voit les différences
+
+| Marquer une version
+| `git tag -a`
+| L'utilisateur pose un label
+
+| Revenir à une version
+| `git checkout <ref> -- .`
+| L'utilisateur choisit une version dans la liste
+|===
+
+== Isolation entre documents
+
+Chaque document possède son propre dépôt indépendant. Cela signifie que :
+
+- L'historique d'un document n'interfère jamais avec celui d'un autre
+- Un document peut avoir 50 versions tandis qu'un autre n'en a que 2
+- La suppression d'un document supprime son dépôt sans impact sur les autres
+- Chaque dépôt reste léger car il ne suit que les fichiers d'un seul document
+
+[source]
+----
+projects/{project_id}/
+└── documents/
+    ├── {document_A}/
+    │   ├── attributes/
+    │   └── repo.git/          ◄── historique indépendant
+    │       └── (12 commits, 2 tags)
+    │
+    ├── {document_B}/
+    │   ├── attributes/
+    │   └── repo.git/          ◄── historique indépendant
+    │       └── (3 commits, 0 tags)
+    │
+    └── {document_C}/
+        ├── attributes/
+        └── repo.git/          ◄── historique indépendant
+            └── (47 commits, 5 tags)
+----
+
+== Lien avec les attributs de version
+
+Le framework définit des attributs de version dans `attributes_config.adoc` :
+
+[source,asciidoc]
+----
+:revnumber:
+:revdate:
+:revremark:
+----
+
+Ces attributs sont utilisés par AsciiDoc pour afficher les informations de version dans le document rendu (page de titre, en-tête, etc.). L'application peut les mettre à jour automatiquement à chaque commit ou tag :
+
+- `:revnumber:` → numéro de version (issu du tag Git ou d'un compteur)
+- `:revdate:` → date du commit
+- `:revremark:` → message du commit ou du tag
+
+Cette mise à jour se fait dans le fichier `attributes_config.adoc` du document (niveau document), de sorte que les informations de version sont propres à chaque document et surchargent les valeurs vides du système.
+
+== Schéma récapitulatif
+
+[source]
+----
+┌──────────────────────────────────────────────────────────────────────┐
+│                        APPLICATION                                   │
+│                                                                      │
+│  L'utilisateur clique sur                                            │
+│  "Enregistrer une version"                                           │
+│          │                                                           │
+│          ▼                                                           │
+│  ┌─────────────────────────────────────────┐                         │
+│  │  1. Résoudre les chemins                │                         │
+│  │     - git-dir  = framework/.../repo.git │                         │
+│  │     - work-tree = dossier utilisateur   │                         │
+│  └──────────────────┬──────────────────────┘                         │
+│                     │                                                │
+│                     ▼                                                │
+│  ┌─────────────────────────────────────────┐                         │
+│  │  2. Exécuter les commandes Git          │                         │
+│  │     git --git-dir=... --work-tree=...   │                         │
+│  │     add -A                              │                         │
+│  │     commit -m "message"                 │                         │
+│  └──────────────────┬──────────────────────┘                         │
+│                     │                                                │
+│                     ▼                                                │
+│  ┌─────────────────────────────────────────┐                         │
+│  │  3. Mettre à jour les attributs         │                         │
+│  │     :revnumber: → tag ou compteur       │                         │
+│  │     :revdate:   → date du commit        │                         │
+│  │     :revremark: → message               │                         │
+│  └──────────────────┬──────────────────────┘                         │
+│                     │                                                │
+│                     ▼                                                │
+│  ┌─────────────────────────────────────────┐                         │
+│  │  4. Retour utilisateur                  │                         │
+│  │     "Version 3 enregistrée"             │                         │
+│  └─────────────────────────────────────────┘                         │
+│                                                                      │
+└──────────────────────────────────────────────────────────────────────┘
+
+        Côté framework (invisible)          Côté utilisateur (visible)
+  ┌──────────────────────────────┐    ┌──────────────────────────────┐
+  │  repo.git/                   │    │  mon-cours/                  │
+  │  ├── objects/ (historique)   │    │  ├── chapitre-01.adoc        │
+  │  ├── refs/tags/              │    │  ├── chapitre-02.adoc        │
+  │  │   ├── v1.0               │    │  └── images/                 │
+  │  │   ├── v2.0               │    │      └── schema.png          │
+  │  │   └── v3.0               │    │                              │
+  │  └── HEAD                   │    │  Aucun dossier .git          │
+  └──────────────────────────────┘    │  Aucun fichier Git           │
+                                      └──────────────────────────────┘
+----

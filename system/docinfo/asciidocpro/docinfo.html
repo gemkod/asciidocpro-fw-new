@@ -249,7 +249,7 @@ span.keyword.adp-kw-active {
              Rouge foncé #C0002E | Gris ardoise #4A4E69
    ============================================================ */
 /*
-{adp_image_filigrane_asciidocpro_file}
+{__image_filigrane_asciidocpro_file}
 */
 /* --- Base -------------------------------------------------- */
 body {
@@ -632,7 +632,7 @@ td.icon {
     document.addEventListener('DOMContentLoaded', function () {
         'use strict';
 
-        const indexEnabled = '{adp_html_show_index}' === '1';
+        const indexEnabled = '{__html_show_index}' === '1';
         if (!indexEnabled) return;
 
         const keywords = Array.from(document.querySelectorAll('span.keyword'));
@@ -736,7 +736,7 @@ td.icon {
         });
 
         // --- 4. Construire la zone de tags ---
-        const position = '{adp_html_index_position}' === 'start' ? 'start' : 'end';
+        const position = '{__html_index_position}' === 'start' ? 'start' : 'end';
 
         const tagsContainer = document.createElement('div');
         tagsContainer.id = 'adp-index-tags';
@@ -781,7 +781,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (document.querySelector('link[href^="http://localhost:"]')) return;
 
-    const toggleEnabled = '{adp_html_toggle_answer}' === '1';
+    const toggleEnabled = '{__html_toggle_answer}' === '1';
     if (!toggleEnabled) return;
 
     const answers = Array.from(document.querySelectorAll('.sidebarblock.answer'));

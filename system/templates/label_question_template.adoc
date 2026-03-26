@@ -1,5 +1,5 @@
-*Q {counter:adp_question_number})*
-// ifeval::["{adp_question_uid}" != ""]
-// [.uid]# {adp_question_uid} #
+*Q {counter:__question_number})*
+// ifeval::["{__question_uid}" != ""]
+// [.uid]# {__question_uid} #
 // //end eval adp_question_uid
 // endif::[]

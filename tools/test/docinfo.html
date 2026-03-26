@@ -244,7 +244,7 @@ span.keyword.adp-kw-active {
              Rouge foncé #C0002E | Gris ardoise #4A4E69
    ============================================================ */
 /*
-{adp_image_filigrane_asciidocpro_file}
+{__image_filigrane_asciidocpro_file}
 */
 /* --- Base -------------------------------------------------- */
 body {
@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (document.querySelector('link[href^="http://localhost:"]')) return;
 
-        const toggleEnabled = '{adp_html_toggle_answer}' === '1';
+        const toggleEnabled = '{__html_toggle_answer}' === '1';
         if (!toggleEnabled) return;
 
         const answers = Array.from(document.querySelectorAll('.sidebarblock.answer'));
@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (document.querySelector('link[href^="http://localhost:"]')) return;
 
-    const toggleEnabled = '{adp_html_toggle_answer}' === '1';
+    const toggleEnabled = '{__html_toggle_answer}' === '1';
     if (!toggleEnabled) return;
 
     const answers = Array.from(document.querySelectorAll('.sidebarblock.answer'));

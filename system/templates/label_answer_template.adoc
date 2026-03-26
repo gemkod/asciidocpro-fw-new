@@ -1,1 +1,1 @@
-[.small]#_Correction de {adp_question_number}_#
+[.small]#_Correction de {__question_number}_#

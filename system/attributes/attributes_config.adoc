@@ -1,12 +1,12 @@
 //region afficher_masquer
 //
-:adp_render_show_correction: 1
-:adp_render_show_teacher_note: 1
-:adp_render_show_todo: 1
-:adp_render_show_author_info: 1
-:adp_render_show_index: 1
-:adp_render_show_version_info: 1
-:adp_html_show_index: 1
+:__render_show_correction: 1
+:__render_show_teacher_note: 1
+:__render_show_todo: 1
+:__render_show_author_info: 1
+:__render_show_index: 1
+:__render_show_version_info: 1
+:__html_show_index: 1
 //endregion afficher_masquer
 //
 //region caption
@@ -35,28 +35,28 @@
 //endregion caption
 //
 //region auteur
-:adp_author_name:
-:adp_author_email:
+:__author_name:
+:__author_email:
 //endregion auteur
 //
 //region diagramme
 //format utilisé pour les images de diagramme dans le backend html
-:adp_plantuml_format_in_html: svg
-:adp_plantuml_format_in_pdf: png
+:__plantuml_format_in_html: svg
+:__plantuml_format_in_pdf: png
 //Intègre le SVG des diagrammes directement dans le HTML (ignoré si format png) (valeurs : inline, interactive, none)
-:adp_diagram_svg_type: inline
+:__diagram_svg_type: inline
 //format utilisé pour les images de diagramme dans le backend pdf
-:adp_diagram_format_type_in_pdf: svg
+:__diagram_format_type_in_pdf: svg
 //endregion diagramme
 //
 //region table des matières
-:adp_toc_html_enable: 1
-:adp_toc_placement_html: left
-:adp_toc_html_preview_enable: 1
-:adp_toc_placement_html_preview: right
-:adp_toc_pdf_enable: 1
+:__toc_html_enable: 1
+:__toc_placement_html: left
+:__toc_html_preview_enable: 1
+:__toc_placement_html_preview: right
+:__toc_pdf_enable: 1
 //placement dans le pdf : macro, ...
-:adp_toc_placement_pdf:
+:__toc_placement_pdf:
 // Titre du sommaire (défaut : "Table of Contents")
 :toc-title: Table des matières
 // Nombre de niveaux de titres inclus dans la TOC (défaut : 2)
@@ -79,46 +79,46 @@
 //endregion version
 //region options HTML
 //position de l'index dans le rendu HTML (start ou end)
-:adp_html_index_position: start
+:__html_index_position: start
 //activer/désactiver les boutons afficher/masquer dans le html
-:adp_html_toggle_answer: 1
+:__html_toggle_answer: 1
 //endregion options HTML
 //region docinfo
 //active l'injection docinfo
-:adp_docinfo_enable: 1
+:__docinfo_enable: 1
 //dossier à utiliser dans le docinfo (permet de choisir le thème html)
-:adp_system_docinfo_vendor: asciidocpro-dark
-:adp_project_docinfo_vendor:
-:adp_document_docinfo_vendor:
+:__system_docinfo_vendor: asciidocpro-dark
+:__project_docinfo_vendor:
+:__document_docinfo_vendor:
 //active l'utilisation du docinfo du projet
-:adp_project_docinfo_enable: 0
+:__project_docinfo_enable: 0
 //active l'utilisation du docinfo du document
-:adp_document_docinfo_enable: 0
+:__document_docinfo_enable: 0
 //niveau d'injection du docinfo
 :docinfo: shared
 //activation de la génération des images en base 64 dans le HTML
 :data-uri:
 //endregion docinfo
 //region templates
-:adp_template_label_question_custom_enable: 0
-:adp_template_label_answer_custom_enable: 0
-:adp_template_label_answer_available_custom_enable: 0
-:adp_template_label_teacher_note_custom_enable: 0
-:adp_template_label_todo_custom_enable: 0
+:__template_label_question_custom_enable: 0
+:__template_label_answer_custom_enable: 0
+:__template_label_answer_available_custom_enable: 0
+:__template_label_teacher_note_custom_enable: 0
+:__template_label_todo_custom_enable: 0
 //endregion templates
 //region niveau des attributs de configuration à charger
 //spécifie s'il faut charger
-:adp_use_current_config: 1
+:__use_current_config: 1
 //endregion niveau des attributs de configuration à charger
 //region theme
 //dossier qui contient tous les éléments du thème
-:adp_theme_pdf_vendor: asciidocpro
-:adp_theme_pdf_file_name: adp-theme.yml
-:adp_project_theme_enabled: 0
-:adp_document_theme_enabled: 0
+:__theme_pdf_vendor: asciidocpro
+:__theme_pdf_file_name: adp-theme.yml
+:__project_theme_enabled: 0
+:__document_theme_enabled: 0
 //endregion theme
 //region question
-:adp_render_question_start: 0
+:__render_question_start: 0
 //endregion question
 //region Mise en page du pdf
 :pdf-page-size: A4
@@ -140,5 +140,5 @@
 :!page-background-image-verso: image:chemin/absolu/vers/img.png[fit=none]
 //endregion Mise en page du pdf
 //region Index
-:adp_index_enabled: 1
+:__index_enabled: 1
 //endregion Index

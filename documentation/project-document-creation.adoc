@@ -1,0 +1,246 @@
+= Création d'un projet et d'un document dans le framework
+:toc: left
+:toclevels: 3
+:icons: font
+
+== Introduction
+
+Ce document explique ce qui se passe **côté framework** lorsqu'un utilisateur crée un projet ou un document dans AsciidocPro. Chaque création se traduit par la génération d'une arborescence de dossiers et de fichiers dans le répertoire `projects/` du framework.
+
+== Création d'un projet
+
+Quand l'utilisateur crée un nouveau projet, le framework génère un dossier dont le nom est l'**identifiant unique du projet** (ex : `a1b2c3d4`). Ce dossier est créé directement dans `projects/`.
+
+=== Structure générée
+
+[source]
+----
+projects/
+└── {project_id}/
+    ├── attributes/
+    │   ├── enable_config.adoc        <1>
+    │   ├── attributes_config.adoc    <2>
+    │   └── attributes_content.adoc   <3>
+    ├── docinfo/                      <4>
+    ├── documents/                    <5>
+    ├── templates/                    <6>
+    ├── themes/                       <7>
+    └── bootstrap.adoc                <8>
+----
+
+=== Description de chaque élément
+
+[cols="1,1,3"]
+|===
+| # | Elément | Rôle
+
+| (1) | `attributes/enable_config.adoc`
+| **Verrou de configuration.** Contient uniquement `:__configuration_enabled: 0` à la création. Tant que cette valeur est à `0`, le fichier `attributes_config.adoc` du projet n'est pas chargé par le loader et les valeurs système s'appliquent. L'utilisateur passe cette valeur à `1` lorsqu'il souhaite activer ses surcharges projet.
+
+| (2) | `attributes/attributes_config.adoc`
+| **Surcharges de configuration.** Fichier vide (ou quasi vide) à la création. L'utilisateur y place les attributs qu'il souhaite surcharger par rapport aux valeurs système par défaut. Seuls les attributs explicitement redéfinis ici écrasent ceux du système.
+
+| (3) | `attributes/attributes_content.adoc`
+| **Attributs de contenu.** Fichier vide à la création. Permet à l'utilisateur de définir des attributs propres au contenu du projet (variables réutilisables dans les documents, par exemple un nom de client, un numéro de version, etc.).
+
+| (4) | `docinfo/`
+| **Dossier docinfo.** Vide à la création. Si l'utilisateur souhaite injecter du HTML personnalisé (CSS, JavaScript) dans ses rendus HTML, il crée un sous-dossier portant le nom de son vendor docinfo (ex : `docinfo/mon-theme/`) contenant un fichier `docinfo.html` et ses assets.
+
+| (5) | `documents/`
+| **Conteneur des documents.** Vide à la création. Chaque document créé dans ce projet y génèrera un sous-dossier (voir <<_création_dun_document>>).
+
+| (6) | `templates/`
+| **Dossier de templates.** Vide à la création. Permet de surcharger les templates système (labels question, réponse, note enseignant, etc.) au niveau projet.
+
+| (7) | `themes/`
+| **Dossier de thèmes PDF.** Vide à la création. Si l'utilisateur souhaite utiliser un thème PDF personnalisé, il crée un sous-dossier portant le nom de son vendor thème (ex : `themes/mon-theme/`) contenant le fichier `.yml` du thème et ses ressources (images, polices, etc.).
+
+| (8) | `bootstrap.adoc`
+| **Point d'entrée du projet.** Fichier racine qui déclenche toute la chaîne de chargement du framework. Il contient une seule ligne : `include::../../system/loader/load_env.adoc[]`. C'est ce fichier qui est référencé par le document AsciiDoc de l'utilisateur pour activer le framework.
+|===
+
+=== Etat initial
+
+A la création, un projet utilise intégralement la configuration système par défaut :
+
+- Le verrou est à `0` → la config projet n'est pas chargée
+- Les dossiers `docinfo/`, `templates/`, `themes/` sont vides → le framework utilise ceux du système
+- Le fichier `bootstrap.adoc` est prêt à l'emploi, aucune modification nécessaire
+
+L'utilisateur n'a rien à configurer pour commencer à écrire : le framework fonctionne immédiatement avec les valeurs par défaut.
+
+[[_création_dun_document]]
+== Création d'un document
+
+Quand l'utilisateur crée un nouveau document au sein d'un projet, le framework génère un dossier dont le nom est l'**identifiant unique du document** (ex : `x1y2z3w4`). Ce dossier est créé dans le sous-dossier `documents/` du projet concerné.
+
+=== Structure générée
+
+[source]
+----
+projects/{project_id}/
+└── documents/
+    └── {document_id}/
+        ├── attributes/
+        │   ├── enable_config.adoc        <1>
+        │   ├── attributes_config.adoc    <2>
+        │   └── attributes_content.adoc   <3>
+        ├── docinfo/                      <4>
+        ├── templates/                    <5>
+        └── themes/                       <6>
+----
+
+=== Comparaison avec la structure projet
+
+La structure d'un document est **identique à celle d'un projet**, à deux différences près :
+
+[cols="2,1,1"]
+|===
+| Elément | Projet | Document
+
+| `attributes/` (enable_config, attributes_config, attributes_content)
+| Oui | Oui
+
+| `docinfo/`
+| Oui | Oui
+
+| `templates/`
+| Oui | Oui
+
+| `themes/`
+| Oui | Oui
+
+| `documents/`
+| Oui | **Non** (un document ne contient pas de sous-documents)
+
+| `bootstrap.adoc`
+| Oui | **Non** (le point d'entrée est au niveau projet uniquement)
+|===
+
+=== Description des éléments
+
+Les dossiers et fichiers jouent le même rôle que leur équivalent projet, mais au niveau document :
+
+[cols="1,3"]
+|===
+| Elément | Rôle
+
+| `attributes/enable_config.adoc`
+| Verrou de configuration du document. A `0` par défaut. Si activé (`1`), le fichier `attributes_config.adoc` du document est chargé et surcharge les valeurs projet (qui elles-mêmes surchargent les valeurs système).
+
+| `attributes/attributes_config.adoc`
+| Surcharges de configuration propres à ce document. Permet par exemple d'utiliser un thème PDF différent pour un seul document du projet.
+
+| `attributes/attributes_content.adoc`
+| Attributs de contenu spécifiques au document.
+
+| `docinfo/`
+| Injection HTML personnalisée pour ce document uniquement.
+
+| `templates/`
+| Templates personnalisés pour ce document uniquement.
+
+| `themes/`
+| Thème PDF personnalisé pour ce document uniquement.
+|===
+
+=== Etat initial
+
+Comme pour un projet, un document nouvellement créé hérite de tout ce qui le précède dans la cascade :
+
+- Si la config projet est activée → le document hérite des surcharges projet
+- Si la config projet n'est pas activée → le document hérite des valeurs système
+- Le verrou document est à `0` → aucune surcharge document n'est appliquée
+
+== La cascade d'héritage illustrée
+
+Le schéma suivant montre comment les trois niveaux se combinent lors du chargement :
+
+[source]
+----
+┌─────────────────────────────────────────────────────────────┐
+│  SYSTEME                                                    │
+│  system/attributes/attributes_config.adoc                   │
+│  → Toutes les valeurs par défaut                            │
+│  → Toujours chargé                                          │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+              enable_config == 1 ?
+              ┌────────────┴────────────┐
+              │ NON                     │ OUI
+              ▼                         ▼
+    (valeurs système            ┌───────────────────────────┐
+     conservées)                │  PROJET                   │
+                                │  projects/{id}/attributes/│
+                                │  attributes_config.adoc   │
+                                │  → Surcharge partielle    │
+                                └─────────────┬─────────────┘
+                                              │
+                                 enable_config == 1 ?
+                                 ┌────────────┴────────────┐
+                                 │ NON                     │ OUI
+                                 ▼                         ▼
+                       (valeurs projet         ┌──────────────────────┐
+                        ou système             │  DOCUMENT            │
+                        conservées)            │  .../documents/{did}/│
+                                               │  attributes/         │
+                                               │  attributes_config   │
+                                               │  → Surcharge finale  │
+                                               └──────────────────────┘
+----
+
+== Exemple concret
+
+Prenons le projet `00000000` et son document `11111111` pour illustrer un cycle de vie complet :
+
+=== 1. Création du projet
+
+Le framework crée `projects/00000000/` avec toute l'arborescence standard. Le verrou projet est à `0`. Le projet utilise la configuration système.
+
+=== 2. Personnalisation du projet
+
+L'utilisateur décide de personnaliser son projet :
+
+- Il passe `enable_config.adoc` à `:__configuration_enabled: 1`
+- Il définit dans `attributes_config.adoc` :
++
+[source,asciidoc]
+----
+:__project_theme_enabled: 1
+:__theme_pdf_vendor: er
+:__theme_pdf_file_name: er-theme.yml
+----
+- Il crée un thème dans `themes/er/` avec son fichier `er-theme.yml` et ses images
+
+Le projet utilise maintenant son propre thème PDF `er`.
+
+=== 3. Création du document 11111111
+
+Le framework crée `projects/00000000/documents/11111111/` avec l'arborescence document. Le verrou est à `0` : le document hérite du thème projet `er`.
+
+=== 4. Personnalisation du document
+
+L'utilisateur veut un thème différent pour ce document uniquement :
+
+- Il passe `enable_config.adoc` à `:__configuration_enabled: 1`
+- Il définit dans `attributes_config.adoc` :
++
+[source,asciidoc]
+----
+:__document_theme_enabled: 1
+:__theme_pdf_vendor: ersn
+:__theme_pdf_file_name: ersn-theme.yml
+----
+- Il crée un thème dans `themes/ersn/` avec ses propres fichiers
+
+Ce document utilise maintenant le thème `ersn`, tandis que les autres documents du projet continuent d'utiliser le thème projet `er` (ou le thème système si le projet n'est pas configuré).
+
+== Points clés
+
+. **Convention de nommage** — Le nom de chaque dossier projet ou document correspond à son identifiant unique dans l'application. Ce couplage id/dossier permet au framework de résoudre les chemins dynamiquement via les attributs `__project_id` et `__document_id`.
+
+. **Architecture miroir** — Un document reproduit la même structure qu'un projet (sans `bootstrap.adoc` ni `documents/`). Cette symétrie rend le système prévisible : les mêmes mécanismes de surcharge s'appliquent aux deux niveaux.
+
+. **Activation explicite** — Rien n'est activé par défaut. Le verrou `enable_config.adoc` garantit que la simple existence de fichiers dans le dossier ne modifie pas le comportement. L'utilisateur doit explicitement activer ses surcharges.
+
+. **Granularité fine** — L'utilisateur peut personnaliser le thème, le docinfo et les templates indépendamment, et à n'importe quel niveau (projet ou document). Un projet peut avoir un thème personnalisé mais utiliser le docinfo système, par exemple.

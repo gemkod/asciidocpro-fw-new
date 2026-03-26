@@ -1,7 +1,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         'use strict';
 
-        const indexEnabled = '{adp_html_show_index}' === '1';
+        const indexEnabled = '{__html_show_index}' === '1';
         if (!indexEnabled) return;
 
         const keywords = Array.from(document.querySelectorAll('span.keyword'));
@@ -105,7 +105,7 @@
         });
 
         // --- 4. Construire la zone de tags ---
-        const position = '{adp_html_index_position}' === 'start' ? 'start' : 'end';
+        const position = '{__html_index_position}' === 'start' ? 'start' : 'end';
 
         const tagsContainer = document.createElement('div');
         tagsContainer.id = 'adp-index-tags';

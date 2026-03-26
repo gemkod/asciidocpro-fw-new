@@ -1,0 +1,447 @@
+= Logique d'héritage des configurations
+:toc: left
+:toclevels: 3
+:icons: font
+
+== Principe général
+
+Le framework applique un système d'héritage à trois niveaux pour la configuration des attributs. Chaque niveau peut surcharger les valeurs du niveau précédent :
+
+[source]
+----
+   Système (défaut)
+       │
+       ▼
+   Projet (surcharge optionnelle)
+       │
+       ▼
+   Document (surcharge optionnelle)
+       │
+       ▼
+   Resolver (résolution finale)
+       │
+       ▼
+   Alias (exposition utilisateur)
+----
+
+L'idée est simple : **le dernier qui parle a raison**. En AsciiDoc, quand un attribut est redéfini, sa nouvelle valeur écrase silencieusement l'ancienne. Le framework exploite ce comportement en chargeant les fichiers de configuration dans un ordre précis.
+
+== Les trois niveaux de configuration
+
+=== Niveau 1 — Système (valeurs par défaut)
+
+[cols="1,3"]
+|===
+| Fichier | `system/attributes/attributes_config.adoc`
+| Chargé | Toujours, inconditionnellement
+| Rôle | Définit **toutes** les valeurs par défaut du framework
+|===
+
+Ce fichier contient l'intégralité des attributs configurables avec leurs valeurs par défaut. C'est la référence complète. Exemples :
+
+[source,asciidoc]
+----
+:__render_show_correction: 1
+:__theme_pdf_vendor: asciidocpro
+:__theme_pdf_file_name: adp-theme.yml
+:__project_theme_enabled: 0
+:__document_theme_enabled: 0
+:__project_docinfo_enable: 0
+:__document_docinfo_enable: 0
+----
+
+A ce stade, le framework utilise le thème `asciidocpro` avec le fichier `adp-theme.yml`, et les surcharges projet/document sont désactivées.
+
+=== Niveau 2 — Projet (surcharge optionnelle)
+
+Le chargement du niveau projet se fait en deux temps via un mécanisme de verrou :
+
+==== Etape 1 : le verrou (`enable_config.adoc`)
+
+[source,asciidoc]
+----
+// loader.adoc, lignes 13-14
+:__configuration_enabled: 0            <1>
+include::{__project_attributes_enable_config_file}[]   <2>
+----
+<1> Le verrou est **réinitialisé à 0** avant chaque niveau
+<2> Le fichier `enable_config.adoc` du projet est inclus
+
+Le fichier `enable_config.adoc` du projet contient simplement :
+
+[source,asciidoc]
+----
+:__configuration_enabled: 0    // ou 1 pour activer
+----
+
+==== Etape 2 : chargement conditionnel
+
+[source,asciidoc]
+----
+// loader.adoc, lignes 15-18
+ifeval::[{__configuration_enabled} == 1]
+include::{__project_attributes_config_file}[]
+endif::[]
+----
+
+Si le verrou vaut `1`, le fichier `attributes_config.adoc` du projet est chargé. Ses attributs **écrasent** ceux du système.
+
+==== Exemple concret
+
+Le projet `00000000` a `__configuration_enabled: 0` donc sa config n'est pas chargée. Mais s'il avait `1`, son fichier `attributes_config.adoc` :
+
+[source,asciidoc]
+----
+:__project_theme_enabled: 1
+:__theme_pdf_vendor: er
+:__theme_pdf_file_name: er-theme.yml
+:__project_docinfo_enable: 0
+:__project_docinfo_vendor: er
+----
+
+...viendrait surcharger les valeurs système : le thème passerait de `asciidocpro/adp-theme.yml` à `er/er-theme.yml`.
+
+=== Niveau 3 — Document (surcharge optionnelle)
+
+Le mécanisme est identique au niveau projet :
+
+[source,asciidoc]
+----
+// loader.adoc, lignes 20-25
+:__configuration_enabled: 0                              <1>
+include::{__document_attributes_enable_config_file}[]    <2>
+ifeval::[{__configuration_enabled} == 1]
+include::{__document_attributes_config_file}[]           <3>
+endif::[]
+----
+<1> Réinitialisation du verrou (indépendant du niveau projet)
+<2> Le fichier `enable_config.adoc` du document active ou non le chargement
+<3> Si activé, les attributs du document écrasent tout ce qui précède
+
+==== Exemple concret
+
+Le document `11111111` a `__configuration_enabled: 1`, donc son fichier est chargé :
+
+[source,asciidoc]
+----
+:__render_question_start: 56
+:__document_theme_enabled: 1
+:__theme_pdf_vendor: ersn
+:__theme_pdf_file_name: ersn-theme.yml
+----
+
+Après ce chargement, le thème est maintenant `ersn/ersn-theme.yml` — ni celui du système, ni celui du projet.
+
+== Résumé du mécanisme d'écrasement
+
+Le tableau suivant illustre la cascade pour l'attribut `:__theme_pdf_vendor:` à travers les trois niveaux :
+
+[cols="1,2,2,2"]
+|===
+| Etape | Fichier chargé | Valeur de `__theme_pdf_vendor` | Explication
+
+| 1 | `system/.../attributes_config.adoc`
+| `asciidocpro`
+| Valeur par défaut du système
+
+| 2 | `project/.../attributes_config.adoc`
+| `er`
+| Le projet surcharge avec son propre thème
+
+| 3 | `document/.../attributes_config.adoc`
+| `ersn`
+| Le document surcharge avec son propre thème
+
+| _Final_ | _(valeur utilisée)_
+| `ersn`
+| Le dernier niveau activé l'emporte
+|===
+
+== Phase de résolution
+
+Après le chargement des trois niveaux, le fichier `attributes_resolver.adoc` transforme les attributs internes (`__xxx`) en attributs natifs AsciiDoc. Le resolver applique lui aussi une logique de cascade pour certains attributs.
+
+=== Exemple : le thème PDF
+
+[source,asciidoc]
+----
+// resolver — lignes 118-126
+:pdf-themesdir: {__system_themes_folder}{__theme_pdf_vendor}/     <1>
+ifeval::[{__project_theme_enabled} == 1]
+:pdf-themesdir: {__project_themes_folder}{__theme_pdf_vendor}/    <2>
+endif::[]
+ifeval::[{__document_theme_enabled} == 1]
+:pdf-themesdir: {__document_themes_folder}{__theme_pdf_vendor}/   <3>
+endif::[]
+:pdf-theme: {__theme_pdf_file_name}
+----
+<1> Par défaut : cherche le thème dans `system/themes/`
+<2> Si le projet active son thème : cherche dans `projects/{id}/themes/`
+<3> Si le document active son thème : cherche dans `projects/{id}/documents/{did}/themes/`
+
+Le resolver utilise la **même valeur** de `__theme_pdf_vendor` (déjà surchargée par la cascade) mais change le **dossier de base** selon le niveau activé. Ce double mécanisme permet de :
+
+- Utiliser un thème système existant depuis un dossier projet (changer le dossier, garder le vendor)
+- Utiliser un thème complètement différent (changer les deux)
+
+=== Même logique pour le docinfo
+
+[source,asciidoc]
+----
+// resolver — lignes 47-58
+:docinfodir: {__system_docinfo_folder}{__system_docinfo_vendor}/
+ifeval::[{__project_docinfo_enable} == 1]
+:docinfodir: {__project_docinfo_folder}{__project_docinfo_vendor}/
+endif::[]
+ifeval::[{__document_docinfo_enable} == 1]
+:docinfodir: {__document_docinfo_folder}{__document_docinfo_vendor}/
+endif::[]
+----
+
+=== Héritage des templates
+
+Les templates sont des fragments AsciiDoc réutilisables qui définissent la mise en forme de certains éléments récurrents (labels de question, de réponse, de note enseignant, etc.). Leur héritage fonctionne sur le même principe de cascade, mais avec un mécanisme propre.
+
+==== Les 5 templates du framework
+
+Le système fournit 5 templates par défaut dans `system/templates/` :
+
+[cols="2,3"]
+|===
+| Fichier | Rôle
+
+| `label_question_template.adoc`
+| Mise en forme du label de question (ex : *Q 1)*)
+
+| `label_answer_template.adoc`
+| Mise en forme du label de correction (ex : _Correction de 1_)
+
+| `label_answer_available_template.adoc`
+| Message affiché quand la correction est masquée (ex : _La réponse à la question *1* est disponible dans la correction._)
+
+| `label_teacher_note_template.adoc`
+| Mise en forme du label de note enseignant
+
+| `label_todo_template.adoc`
+| Mise en forme du label de tâche à faire
+|===
+
+==== Mécanisme de cascade
+
+Contrairement au thème et au docinfo qui utilisent un flag unique (`__project_theme_enabled`, `__project_docinfo_enable`), chaque template dispose de **son propre flag d'activation** défini dans `attributes_config.adoc` :
+
+[source,asciidoc]
+----
+// system/attributes/attributes_config.adoc — lignes 103-107
+:__template_label_question_custom_enable: 0
+:__template_label_answer_custom_enable: 0
+:__template_label_answer_available_custom_enable: 0
+:__template_label_teacher_note_custom_enable: 0
+:__template_label_todo_custom_enable: 0
+----
+
+Tous sont à `0` par défaut : le framework utilise les templates système.
+
+==== Résolution dans le resolver
+
+Le resolver traite chaque template individuellement. Voici la logique complète pour les 5 templates :
+
+[source,asciidoc]
+----
+// resolver — lignes 62-91
+
+// --- question
+:__template_label_question_file: {__system_template_question_file}            <1>
+ifeval::[{__template_label_question_custom_enable} == 1]
+:__template_label_question_file: {__project_template_question_file}           <2>
+endif::[]
+
+// --- answer
+:__template_label_answer_file: {__system_template_answer_file}
+ifeval::[{__template_label_answer_custom_enable} == 1]
+:__template_label_answer_file: {__project_template_answer_file}
+endif::[]
+
+// --- answer available
+:__template_label_answer_available_file: {__system_template_answer_avalaible_file}
+ifeval::[{__template_label_answer_avalaible_custom_enable} == 1]
+:__template_label_answer_available_file: {__project_template_answer_avalaible_file}
+endif::[]
+
+// --- teacher note
+:__template_label_teacher_note_file: {__system_template_teacher_note_file}
+ifeval::[{__template_label_teacher_note_custom_enable} == 1]
+:__template_label_teacher_note_file: {__project_template_teacher_note_file}
+endif::[]
+
+// --- to do
+:__template_label_todo_file: {__system_template_todo_file}
+ifeval::[{__template_label_todo_custom_enable} == 1]
+:__template_label_todo_file: {__project_template_todo_file}
+endif::[]
+----
+<1> Par défaut, chaque template pointe vers le fichier système (`system/templates/`)
+<2> Si le flag est activé, le chemin est remplacé par celui du projet (`projects/{id}/templates/`)
+
+==== Différence avec le thème et le docinfo
+
+[cols="2,1,1,1"]
+|===
+| Caractéristique | Thème | Docinfo | Templates
+
+| Granularité du flag
+| 1 flag par niveau (projet/document)
+| 1 flag par niveau
+| **1 flag par template** (5 flags indépendants)
+
+| Niveaux de cascade
+| Système → Projet → Document
+| Système → Projet → Document
+| **Système → Projet** uniquement (pas de niveau document actuellement)
+
+| Possibilité de mix
+| Non (tout ou rien par niveau)
+| Non (tout ou rien par niveau)
+| **Oui** (on peut surcharger le label question au niveau projet tout en gardant le label réponse système)
+|===
+
+Cette granularité fine permet par exemple à un projet de personnaliser uniquement le format du label de question sans toucher aux autres templates.
+
+==== Les chemins sont prédéfinis dans `attributes_filesystem.adoc`
+
+Chaque niveau dispose de ses propres chemins vers les fichiers de templates, définis dans `attributes_filesystem.adoc` :
+
+[source,asciidoc]
+----
+// Niveau système
+:__system_templates_folder: {__system_folder}templates/
+:__system_template_question_file: {__system_templates_folder}label_question_template.adoc
+:__system_template_answer_file: {__system_templates_folder}label_answer_template.adoc
+// ... (idem pour les 3 autres)
+
+// Niveau projet
+:__project_templates_folder: {__current_project_folder}templates/
+:__project_template_question_file: {__project_templates_folder}label_question_template.adoc
+:__project_template_answer_file: {__project_templates_folder}label_answer_template.adoc
+// ... (idem pour les 3 autres)
+
+// Niveau document
+:__document_templates_folder: {__current_document_folder}templates/
+:__document_template_question_file: {__document_templates_folder}label_question_template.adoc
+:__document_template_answer_file: {__document_templates_folder}label_answer_template.adoc
+// ... (idem pour les 3 autres)
+----
+
+Les chemins document existent dans le filesystem mais ne sont **pas encore exploités par le resolver** (qui ne gère que système → projet pour l'instant). L'infrastructure est prête pour un futur niveau de surcharge document.
+
+==== Exemple concret : personnaliser le label de question
+
+Pour qu'un projet utilise son propre label de question :
+
+. Activer la config projet (`enable_config.adoc` → `:__configuration_enabled: 1`)
+. Activer le flag du template dans `attributes_config.adoc` :
++
+[source,asciidoc]
+----
+:__template_label_question_custom_enable: 1
+----
+. Créer le fichier `projects/{id}/templates/label_question_template.adoc` avec le contenu personnalisé, par exemple :
++
+[source,asciidoc]
+----
+*Question {counter:__question_number} —*
+----
+
+Le resolver résoudra `__template_label_question_file` vers le fichier projet au lieu du fichier système. Les autres templates (réponse, note, etc.) resteront ceux du système.
+
+==== Exposition à l'utilisateur via les alias
+
+Les templates résolus sont exposés à l'auteur du document via des alias simplifiés dans `attributes_alias.adoc` :
+
+[source,asciidoc]
+----
+:__label_question: {__template_label_question_file}
+:__label_answer: {__template_label_answer_file}
+:__label_answer_hidden: {__template_label_answer_available_file}
+:__label_teacher_note: {__template_label_teacher_note_file}
+:__label_todo: {__template_label_todo_file}
+----
+
+L'auteur utilise ensuite ces alias dans son document via un `include` :
+
+[source,asciidoc]
+----
+\include::{__label_question}[]
+Quel est le rôle d'un serveur DNS ?
+
+\include::{__label_answer}[]
+Un serveur DNS traduit les noms de domaine en adresses IP.
+----
+
+Sans se soucier de savoir si le template provient du système ou du projet — le framework a déjà résolu le bon chemin.
+
+== Phase d'alias
+
+En dernière étape, `attributes_alias.adoc` expose des noms simplifiés destinés aux utilisateurs finaux dans leurs documents :
+
+[source,asciidoc]
+----
+:__show_correction: {__render_show_correction}
+:__question_number: {__render_question_start}
+:__label_answer: {__template_label_answer_file}
+:__label_question: {__template_label_question_file}
+----
+
+L'utilisateur utilise `{__show_correction}` dans son document sans se soucier de quel niveau a défini la valeur.
+
+== Schéma récapitulatif complet
+
+[source]
+----
+┌─────────────────────────────────────────────────────────────────┐
+│                        CHARGEMENT                               │
+│                                                                 │
+│  ┌───────────────────────────────────┐                          │
+│  │  1. SYSTEME (toujours chargé)     │                          │
+│  │  attributes_config.adoc           │──► Tous les défauts      │
+│  └──────────────┬────────────────────┘                          │
+│                 │                                                │
+│                 ▼                                                │
+│  ┌───────────────────────────────────┐                          │
+│  │  2. PROJET (si activé)            │                          │
+│  │  enable_config → attributes_config│──► Surcharge partielle   │
+│  └──────────────┬────────────────────┘                          │
+│                 │                                                │
+│                 ▼                                                │
+│  ┌───────────────────────────────────┐                          │
+│  │  3. DOCUMENT (si activé)          │                          │
+│  │  enable_config → attributes_config│──► Surcharge partielle   │
+│  └──────────────┬────────────────────┘                          │
+│                 │                                                │
+└─────────────────┼───────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                       RESOLUTION                                │
+│                                                                 │
+│  ┌───────────────────────────────────┐                          │
+│  │  4. RESOLVER                      │                          │
+│  │  Attributs internes ──► AsciiDoc  │──► Cascade dossier/      │
+│  │  (backend, flags, conditions)     │    vendor pour thème,    │
+│  └──────────────┬────────────────────┘    docinfo, templates    │
+│                 │                                                │
+│                 ▼                                                │
+│  ┌───────────────────────────────────┐                          │
+│  │  5. ALIAS                         │                          │
+│  │  Noms simplifiés pour l'auteur    │──► Interface publique    │
+│  └───────────────────────────────────┘                          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+----
+
+== Points clés à retenir
+
+. **Le verrou est réinitialisé** (`__configuration_enabled: 0`) avant chaque niveau — les niveaux projet et document sont totalement indépendants l'un de l'autre.
+. **Seuls les attributs redéfinis sont surchargés** — un fichier projet qui ne définit que 3 attributs ne modifie que ces 3 valeurs ; tous les autres gardent leur valeur système.
+. **Le resolver ajoute une deuxième couche de cascade** pour les chemins (dossiers thème, docinfo, templates) qui dépendent à la fois de la valeur de l'attribut ET du dossier source.
+. **Les alias isolent l'utilisateur** de la mécanique interne — il manipule des noms stables quel que soit le niveau qui a défini la valeur.

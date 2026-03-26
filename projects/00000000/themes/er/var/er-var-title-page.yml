@@ -24,7 +24,7 @@ var:
 
 
 #    logo:
-#        image: image:{adp_image_logo_image_asciidocpro_file}[]
+#        image: image:{__image_logo_image_asciidocpro_file}[]
 #        top: 0
 #        align: left
 #        width: 50
