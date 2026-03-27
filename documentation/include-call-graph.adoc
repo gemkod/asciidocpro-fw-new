@@ -7,9 +7,8 @@
 
 Ce document décrit la chaîne complète des appels `include::` à partir du fichier d'entrée `bootstrap.adoc`.
 
-* *Fichiers dans la chaîne :* 15
 * *Fichiers contenant des includes :* 3 (bootstrap, load_env, loader)
-* *Fichiers feuilles (attributs uniquement) :* 12
+* *Niveaux de configuration :* 4 (système, global, projet, document)
 
 == Graphe d'appels
 
@@ -28,18 +27,29 @@ projects/00000000/bootstrap.adoc
           ├──► system/attributes/attributes_enum.adoc                    (3)
           │
           ├──► system/attributes/attributes_config.adoc                  (4)
+          ├──► system/attributes/attributes_content.adoc                 (5)
           │
+          ├──► global/attributes/attributes_config.adoc                  (6)  verrou
           ├──► [si __configuration_enabled == 1]
-          │    ├──► projects/{id}/attributes/enable_config.adoc          (5)
-          │    └──► projects/{id}/attributes/attributes_config.adoc      (6)
+          │    └──► global/attributes/attributes_config.adoc             (7)
+          ├──► [si __attributes_content_enabled == 1]
+          │    └──► global/attributes/attributes_content.adoc            (8)
           │
-          ├──► [si __configuration_enabled == 1 ET __document_id défini]
-          │    ├──► projects/{id}/documents/{did}/attributes/enable_config.adoc       (7)
-          │    └──► projects/{id}/documents/{did}/attributes/attributes_config.adoc   (8)
+          ├──► projects/{id}/attributes/enable_config.adoc               (9)  verrou
+          ├──► [si __configuration_enabled == 1]
+          │    ├──► projects/{id}/attributes/attributes_config.adoc      (10)
+          │    └──► [si __attributes_content_enabled == 1]
+          │         └──► projects/{id}/attributes/attributes_content.adoc (11)
           │
-          ├──► system/attributes/attributes_resolver.adoc                (9)
+          ├──► projects/{id}/documents/{did}/attributes/enable_config.adoc        (12) verrou
+          ├──► [si __configuration_enabled == 1]
+          │    ├──► projects/{id}/documents/{did}/attributes/attributes_config.adoc (13)
+          │    └──► [si __attributes_content_enabled == 1]
+          │         └──► projects/{id}/documents/{did}/attributes/attributes_content.adoc (14)
           │
-          └──► system/attributes/attributes_alias.adoc                   (10)
+          ├──► system/attributes/attributes_resolver.adoc                (15)
+          │
+          └──► system/attributes/attributes_alias.adoc                   (16)
 ----
 
 == Détail par fichier
@@ -68,8 +78,8 @@ projects/00000000/bootstrap.adoc
 [cols="1,3"]
 |===
 | Fichier | `system/loader/loader.adoc`
-| Rôle | Orchestre le chargement de tous les attributs du système, du projet et du document
-| Nombre d'includes | 10 (dont certains conditionnels)
+| Rôle | Orchestre le chargement de tous les attributs du système, du global, du projet et du document
+| Nombre d'includes | 16 (dont certains conditionnels)
 |===
 
 Les includes sont exécutés dans cet ordre :
@@ -82,13 +92,35 @@ Les includes sont exécutés dans cet ordre :
 | 2 | `system/attributes/attributes_filesystem.adoc` | _(chemin littéral)_ | aucune
 | 3 | `system/attributes/attributes_enum.adoc` | `{__system_attributes_enum_file}` | aucune
 | 4 | `system/attributes/attributes_config.adoc` | `{__system_attributes_config_file}` | aucune
-| 5 | `projects/{id}/attributes/enable_config.adoc` | `{__project_attributes_enable_config_file}` | `__configuration_enabled == 1`
-| 6 | `projects/{id}/attributes/attributes_config.adoc` | `{__project_attributes_config_file}` | `__configuration_enabled == 1`
-| 7 | `projects/{id}/documents/{did}/attributes/enable_config.adoc` | `{__document_attributes_enable_config_file}` | `__configuration_enabled == 1` et `__document_id` défini
-| 8 | `projects/{id}/documents/{did}/attributes/attributes_config.adoc` | `{__document_attributes_config_file}` | `__configuration_enabled == 1`
-| 9 | `system/attributes/attributes_resolver.adoc` | `{__system_attributes_resolver_file}` | aucune
-| 10 | `system/attributes/attributes_alias.adoc` | `{__system_attributes_alias_file}` | aucune
+| 5 | `system/attributes/attributes_content.adoc` | `{__system_attributes_content_file}` | aucune
+
+4+| _Niveau global — verrou réinitialisé (`__configuration_enabled: 0`, `__attributes_content_enabled: 0`)_
+
+| 6 | `global/attributes/attributes_config.adoc` | `{__global_attributes_config_file}` | aucune (sert de verrou)
+| 7 | `global/attributes/attributes_config.adoc` | `{__global_attributes_config_file}` | `__configuration_enabled == 1`
+| 8 | `global/attributes/attributes_content.adoc` | `{__global_attributes_content_file}` | `__attributes_content_enabled == 1`
+
+4+| _Niveau projet — verrou réinitialisé (`__configuration_enabled: 0`, `__attributes_content_enabled: 0`)_
+
+| 9 | `projects/{id}/attributes/enable_config.adoc` | `{__project_attributes_enable_config_file}` | aucune (sert de verrou)
+| 10 | `projects/{id}/attributes/attributes_config.adoc` | `{__project_attributes_config_file}` | `__configuration_enabled == 1`
+| 11 | `projects/{id}/attributes/attributes_content.adoc` | `{__project_attributes_content_file}` | `__configuration_enabled == 1` et `__attributes_content_enabled == 1`
+
+4+| _Niveau document — verrou réinitialisé (`__configuration_enabled: 0`, `__attributes_content_enabled: 0`)_
+
+| 12 | `projects/{id}/documents/{did}/attributes/enable_config.adoc` | `{__document_attributes_enable_config_file}` | aucune (sert de verrou)
+| 13 | `projects/{id}/documents/{did}/attributes/attributes_config.adoc` | `{__document_attributes_config_file}` | `__configuration_enabled == 1`
+| 14 | `projects/{id}/documents/{did}/attributes/attributes_content.adoc` | `{__document_attributes_content_file}` | `__configuration_enabled == 1` et `__attributes_content_enabled == 1`
+
+4+| _Résolution et exposition_
+
+| 15 | `system/attributes/attributes_resolver.adoc` | `{__system_attributes_resolver_file}` | aucune
+| 16 | `system/attributes/attributes_alias.adoc` | `{__system_attributes_alias_file}` | aucune
 |===
+
+NOTE: Au niveau global, le fichier `attributes_config.adoc` joue à la fois le rôle de verrou et de configuration (il est inclus une première fois pour positionner les flags, puis une seconde fois conditionnellement). Aux niveaux projet et document, un fichier `enable_config.adoc` dédié remplit le rôle de verrou.
+
+NOTE: Aux niveaux projet et document, le chargement de `attributes_content` est **imbriqué** dans la condition `__configuration_enabled` (il faut que la config soit activée ET que le contenu soit activé). Au niveau global, les deux conditions sont indépendantes.
 
 === Niveau 3 — Fichiers feuilles
 
@@ -101,9 +133,20 @@ Les includes sont exécutés dans cet ordre :
 | `projects/framework_location.adoc` | Définit `__framework_folder` (chemin absolu du framework)
 | `system/attributes/attributes_filesystem.adoc` | Définit tous les chemins de fichiers utilisés par le loader
 | `system/attributes/attributes_enum.adoc` | Définit les attributs d'énumération
-| `system/attributes/attributes_config.adoc` | Configuration système globale (144 lignes)
+| `system/attributes/attributes_config.adoc` | Configuration système — valeurs par défaut de tous les attributs
+| `system/attributes/attributes_content.adoc` | Attributs de contenu au niveau système
 | `system/attributes/attributes_resolver.adoc` | Résolution conditionnelle d'attributs selon le backend
 | `system/attributes/attributes_alias.adoc` | Alias utilisateur pour les attributs
+|===
+
+==== Global
+
+[cols="2,3"]
+|===
+| Fichier | Rôle
+
+| `global/attributes/attributes_config.adoc` | Surcharges de configuration pour tous les projets (sert aussi de verrou via `__configuration_enabled`)
+| `global/attributes/attributes_content.adoc` | Attributs de contenu au niveau global
 |===
 
 ==== Projet (00000000)
@@ -114,6 +157,7 @@ Les includes sont exécutés dans cet ordre :
 
 | `projects/00000000/attributes/enable_config.adoc` | Active/désactive la config projet (`__configuration_enabled: 0`)
 | `projects/00000000/attributes/attributes_config.adoc` | Surcharges de configuration au niveau projet
+| `projects/00000000/attributes/attributes_content.adoc` | Attributs de contenu au niveau projet
 |===
 
 ==== Documents
@@ -124,6 +168,7 @@ Les includes sont exécutés dans cet ordre :
 
 | `projects/00000000/documents/11111111/attributes/enable_config.adoc` | 11111111 | Oui (`1`)
 | `projects/00000000/documents/11111111/attributes/attributes_config.adoc` | 11111111 | _(chargé si activé)_
+| `projects/00000000/documents/11111111/attributes/attributes_content.adoc` | 11111111 | _(chargé si activé + content activé)_
 | `projects/00000000/documents/22222222/attributes/enable_config.adoc` | 22222222 | Non (`0`)
 | `projects/00000000/documents/33333333/attributes/enable_config.adoc` | 33333333 | Non (`0`)
 |===
@@ -139,10 +184,16 @@ graph TD
     C --> E["attributes_filesystem.adoc"]
     C --> F["attributes_enum.adoc"]
     C --> G["attributes_config.adoc<br/>(système)"]
-    C -->|"si config activée"| H["enable_config.adoc<br/>(projet)"]
-    C -->|"si config activée"| I["attributes_config.adoc<br/>(projet)"]
-    C -->|"si config activée<br/>+ document défini"| J["enable_config.adoc<br/>(document)"]
-    C -->|"si config activée"| K["attributes_config.adoc<br/>(document)"]
+    C --> G2["attributes_content.adoc<br/>(système)"]
+    C --> H0["attributes_config.adoc<br/>(global — verrou)"]
+    H0 -->|"si config activée"| H1["attributes_config.adoc<br/>(global)"]
+    H0 -->|"si content activé"| H2["attributes_content.adoc<br/>(global)"]
+    C --> I0["enable_config.adoc<br/>(projet — verrou)"]
+    I0 -->|"si config activée"| I1["attributes_config.adoc<br/>(projet)"]
+    I1 -->|"si content activé"| I2["attributes_content.adoc<br/>(projet)"]
+    C --> J0["enable_config.adoc<br/>(document — verrou)"]
+    J0 -->|"si config activée"| J1["attributes_config.adoc<br/>(document)"]
+    J1 -->|"si content activé"| J2["attributes_content.adoc<br/>(document)"]
     C --> L["attributes_resolver.adoc"]
     C --> M["attributes_alias.adoc"]
 
@@ -153,10 +204,16 @@ graph TD
     style E fill:#3498db,color:#fff
     style F fill:#2ecc71,color:#fff
     style G fill:#2ecc71,color:#fff
-    style H fill:#9b59b6,color:#fff
-    style I fill:#9b59b6,color:#fff
-    style J fill:#1abc9c,color:#fff
-    style K fill:#1abc9c,color:#fff
+    style G2 fill:#2ecc71,color:#fff
+    style H0 fill:#e67e22,color:#fff
+    style H1 fill:#e67e22,color:#fff
+    style H2 fill:#e67e22,color:#fff
+    style I0 fill:#9b59b6,color:#fff
+    style I1 fill:#9b59b6,color:#fff
+    style I2 fill:#9b59b6,color:#fff
+    style J0 fill:#1abc9c,color:#fff
+    style J1 fill:#1abc9c,color:#fff
+    style J2 fill:#1abc9c,color:#fff
     style L fill:#2ecc71,color:#fff
     style M fill:#2ecc71,color:#fff
 ----
@@ -164,8 +221,9 @@ graph TD
 Légende des couleurs :
 
 * *Rouge* — Point d'entrée
-* *Orange* — Loaders / orchestrateurs
+* *Orange clair* — Loaders / orchestrateurs
 * *Bleu* — Configuration du framework et chemins
 * *Vert* — Attributs système
+* *Orange foncé* — Attributs global (conditionnels)
 * *Violet* — Attributs projet (conditionnels)
 * *Turquoise* — Attributs document (conditionnels)
