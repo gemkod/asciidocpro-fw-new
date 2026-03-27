@@ -46,6 +46,10 @@ endif::[]
 //region docinfo
 ifeval::[{__docinfo_enable} == 1]
 :docinfodir: {__system_docinfo_folder}{__system_docinfo_vendor}/
+ifeval::[{__global_docinfo_enable} == 1]
+:docinfodir: {__global_docinfo_folder}{__global_docinfo_vendor}/
+//end eval __global_docinfo_enable
+endif::[]
 ifeval::[{__project_docinfo_enable} == 1]
 :docinfodir: {__project_docinfo_folder}{__project_docinfo_vendor}/
 //end eval adp_project_docinfo_enable
@@ -58,36 +62,72 @@ endif::[]
 endif::[]
 //endregion docinfo
 // -----------------------------------------------------------
-//region templates
+//region templates (configurable au niveau global et au niveau projet, mais pas au niveau document
 // --- question
 :__template_label_question_file: {__system_template_question_file}
-ifeval::[{__template_label_question_custom_enable} == 1]
+ifeval::[{__global_template_label_question_enable} == 1]
+:__template_label_question_file: {__global_template_question_file}
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__project_template_label_question_enable} == 1]
 :__template_label_question_file: {__project_template_question_file}
-//end eval
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__document_template_label_question_enable} == 1]
+:__template_label_question_file: {__document_template_question_file}
+//end eval __global_template_label_question_enable
 endif::[]
 // --- answer
 :__template_label_answer_file: {__system_template_answer_file}
-ifeval::[{__template_label_answer_custom_enable} == 1]
+ifeval::[{__global_template_label_answer_enable} == 1]
+:__template_label_answer_file: {__global_template_answer_file}
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__project_template_label_answer_enable} == 1]
 :__template_label_answer_file: {__project_template_answer_file}
-//end eval
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__document_template_label_answer_enable} == 1]
+:__template_label_answer_file: {__document_template_answer_file}
+//end eval __global_template_label_question_enable
 endif::[]
 // --- answer available
 :__template_label_answer_available_file: {__system_template_answer_avalaible_file}
-ifeval::[{__template_label_answer_avalaible_custom_enable} == 1]
-:__template_label_answer_available_file: {__project_template_answer_avalaible_file}
-//end eval
+ifeval::[{__global_template_label_answer_available_enable} == 1]
+:__template_label_answer_available_file: {__global_template_answer_avalaible_file}
+//end eval __global_template_label_question_enable
 endif::[]
+ifeval::[{__project_template_label_answer_available_enable} == 1]
+:__template_label_answer_available_file: {__project_template_answer_avalaible_file}
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__document_template_label_answer_available_enable} == 1]
+:__template_label_answer_available_file: {__document_template_answer_avalaible_file}
 // --- teacher note
 :__template_label_teacher_note_file: {__system_template_teacher_note_file}
-ifeval::[{__template_label_teacher_note_custom_enable} == 1]
-:__template_label_teacher_note_file: {__project_template_teacher_note_file}
-//end eval
+ifeval::[{__global_template_label_teacher_note_enable} == 1]
+:__template_label_teacher_note_file: {__global_template_teacher_note_file}
+//end eval __global_template_label_question_enable
 endif::[]
+ifeval::[{__project_template_label_teacher_note_enable} == 1]
+:__template_label_teacher_note_file: {__project_template_teacher_note_file}
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__document_template_label_teacher_note_enable} == 1]
+:__template_label_teacher_note_file: {__document_template_teacher_note_file}
 // --- to do
 :__template_label_todo_file: {__system_template_todo_file}
-ifeval::[{__template_label_todo_custom_enable} == 1]
+ifeval::[{__global_template_todo_enable} == 1]
+:__template_label_todo_file: {__global_template_todo_file}
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__project_template_todo_enable} == 1]
 :__template_label_todo_file: {__project_template_todo_file}
-//end eval
+//end eval __global_template_label_question_enable
+endif::[]
+ifeval::[{__document_template_todo_enable} == 1]
+:__template_label_todo_file: {__document_template_todo_file}
+//end eval __global_template_label_question_enable
 endif::[]
 //endregion templates
 // -----------------------------------------------------------
@@ -116,6 +156,10 @@ endif::backend-pdf[]
 //endregion table des matières
 //region theme
 :pdf-themesdir: {__system_themes_folder}{__theme_pdf_vendor}/
+ifeval::[{__global_theme_enabled} == 1]
+:pdf-themesdir: {__global_themes_folder}{__theme_pdf_vendor}/
+//end eval __global_theme_enabled
+endif::[]
 ifeval::[{__project_theme_enabled} == 1]
 :pdf-themesdir: {__project_themes_folder}{__theme_pdf_vendor}/
 //end eval adp_project_theme_enabled
@@ -127,5 +171,5 @@ endif::[]
 :pdf-theme: {__theme_pdf_file_name}
 //endregion theme
 //region doctype
-//todo gérer la valeur de l'attribut adp_support_type dans le fichier enable_config qui doit être renommé comme fichier d'attributs à charger indépendamment des autres .
+:doctype: {__support_type}
 //endregion doctype

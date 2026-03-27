@@ -1,2 +1,3 @@
 :__configuration_enabled: 0
+:__attributes_content_enabled: 0
 :__support_type: book

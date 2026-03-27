@@ -88,8 +88,11 @@
 :__docinfo_enable: 1
 //dossier à utiliser dans le docinfo (permet de choisir le thème html)
 :__system_docinfo_vendor: asciidocpro-dark
+:__global_docinfo_vendor:
 :__project_docinfo_vendor:
 :__document_docinfo_vendor:
+//active l'utilisation du docinfo global
+:__global_docinfo_enable: 0
 //active l'utilisation du docinfo du projet
 :__project_docinfo_enable: 0
 //active l'utilisation du docinfo du document
@@ -100,20 +103,37 @@
 :data-uri:
 //endregion docinfo
 //region templates
-:__template_label_question_custom_enable: 0
-:__template_label_answer_custom_enable: 0
-:__template_label_answer_available_custom_enable: 0
-:__template_label_teacher_note_custom_enable: 0
-:__template_label_todo_custom_enable: 0
+// :__template_label_question_custom_enable: 0
+// -- question
+:__global_template_label_question_enable: 0
+:__project_template_label_question_enable: 0
+:__document_template_label_question_enable: 0
+// -- answer
+:__global_template_label_answer_enable: 0
+:__project_template_label_answer_enable: 0
+:__document_template_label_answer_enable: 0
+// -- answer available
+:__global_template_label_answer_available_enable: 0
+:__project_template_label_answer_available_enable: 0
+:__document_template_label_answer_available_enable: 0
+// -- teacher note
+:__global_template_label_teacher_note_enable: 0
+:__project_template_label_teacher_note_enable: 0
+:__document_template_label_teacher_note_enable: 0
+// -- to do
+:__global_template_todo_enable: 0
+:__project_template_todo_enable: 0
+:__document_template_todo_enable: 0
 //endregion templates
 //region niveau des attributs de configuration à charger
-//spécifie s'il faut charger
+//spécifie s'il faut charger (todo : pas certain que cet attribut soit utile)
 :__use_current_config: 1
 //endregion niveau des attributs de configuration à charger
 //region theme
 //dossier qui contient tous les éléments du thème
 :__theme_pdf_vendor: asciidocpro
 :__theme_pdf_file_name: adp-theme.yml
+:__global_theme_enabled: 0
 :__project_theme_enabled: 0
 :__document_theme_enabled: 0
 //endregion theme
@@ -125,7 +145,7 @@
 //mode "portrait" ou "landscape"
 :pdf-page-layout: portrait
 //doctype pour conditionner le rendu
-:doctype: book
+:__support_type: book
 //activer / désactive la page de titre pour le doctype "article"
 :!title-page:
 :!title-page-background-image: image:chemin/absolu/vers/img.png[fit=none]

@@ -1,8 +1,9 @@
 //region Nom des dossiers
+:__global_folder_name: global
 :__projects_user_folder_name: projects
+:__system_folder_name: system
 :__attributes_folder_name: attributes
 :__docinfo_folder_name: docinfo
-:__system_folder_name: system
 :__templates_folder_name: templates
 :__themes_folder_name: themes
 :__documents_folder_name: documents
@@ -20,6 +21,7 @@
 :__template_label_teacher_note_file_name: label_teacher_note_template.adoc
 :__template_label_todo_file_name: label_todo_template.adoc
 :__attributes_config_file_name: attributes_config.adoc
+:__attributes_content_file_name: attributes_content.adoc
 :__attributes_enable_config_file_name: enable_config.adoc
 :__theme_asciidocpro_file_name: adp-theme.yml
 //endregion nom des fichiers
@@ -41,6 +43,7 @@
 :__system_attributes_resolver_file: {__system_attributes_folder}attributes_resolver.adoc
 :__system_attributes_alias_file: {__system_attributes_folder}attributes_alias.adoc
 :__system_attributes_config_file: {__system_attributes_folder}{__attributes_config_file_name}
+:__system_attributes_content_file: {__system_attributes_folder}{__attributes_content_file_name_}
 :__system_attributes_enum_file: {__system_attributes_folder}attributes_enum.adoc
 //endregion Chemins vers les fichiers d'attribut système
 //region Chemins vers les fichiers de templates système
@@ -59,6 +62,27 @@
 //
 //endregion partie système
 //
+//region partie globale
+//region Chemin vers les dossiers globaux
+:__global_folder: {__framework_folder}{__global_folder_name}/
+:__global_attributes_folder: {__global_folder}{__attributes_folder_name}/
+:__global_docinfo_folder: {__global_folder}{__docinfo_folder_name}/
+:__global_templates_folder: {__global_folder}{__templates_folder_name}/
+:__global_themes_folder: {__global_folder}{__themes_folder_name}/
+//endregion Chemin vers les dossiers globaux
+//region Chemins vers les fichiers d'attribut globaux
+:__global_attributes_enable_config_file: {__global_attributes_folder}{__attributes_enable_config_file_name}
+:__global_attributes_config_file: {__global_attributes_folder}{__attributes_config_file_name}
+:__global_attributes_content_file: {__global_attributes_folder}{__attributes_content_file_name}
+//endregion Chemins vers les fichiers d'attribut globaux
+//region Chemins vers les fichiers de templates globaux
+:__global_template_question_file: {__global_templates_folder}{__template_label_question_file_name}
+:__global_template_answer_file: {__global_templates_folder}{__template_label_answer_file_name}
+:__global_template_answer_avalaible_file: {__global_templates_folder}{__template_label_answer_available_file_name}
+:__global_template_teacher_note_file: {__global_templates_folder}{__template_label_teacher_note_file_name}
+:__global_template_todo_file: {__global_templates_folder}{__template_label_todo_file_name}
+//endregion Chemins vers les fichiers de templates globaux
+//endregion partie globale
 //
 //
 //region partie projet courant chargé
@@ -74,6 +98,7 @@
 //region Chemin vers les fichiers d'attributs du projet
 :__project_attributes_enable_config_file: {__project_attributes_folder}{__attributes_enable_config_file_name}
 :__project_attributes_config_file: {__project_attributes_folder}{__attributes_config_file_name}
+:__project_attributes_content_file: {__project_attributes_folder}{__attributes_content_file_name}
 //endregion Chemin vers les fichiers d'attributs du projet
 //region Chemin vers les fichiers de template du projet
 :__project_template_question_file: {__project_templates_folder}{__template_label_question_file_name}
@@ -100,6 +125,7 @@
 //region Chemins vers les fichiers d'attributs du document
 :__document_attributes_enable_config_file: {__document_attributes_folder}{__attributes_enable_config_file_name}
 :__document_attributes_config_file: {__document_attributes_folder}{__attributes_config_file_name}
+:__document_attributes_content_file: {__document_attributes_folder}{__attributes_content_file_name}
 //endregion Chemins vers les fichiers d'attributs du document
 //region Chemin vers les fichiers de template du document
 :__document_template_question_file: {__document_templates_folder}{__template_label_question_file_name}
